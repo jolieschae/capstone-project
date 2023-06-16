@@ -4,6 +4,7 @@ import MyProvider, { MyContext } from "./MyProvider";
 import Home from "./Home";
 import Nav from "./Nav";
 import Login from "./Login";
+// import Profile from "./Profile";
 import Error from "./Error";
 
 function App() {

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react';
+import { MyContext } from './MyProvider';
 
 function Home() {
   return (
