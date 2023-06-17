@@ -32,6 +32,24 @@ gig_categories = db.Table(
     db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
 )
 
+attendance = db.Table(
+    'attendance',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+    db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True)
+)
+
+user_event_collaborator = db.Table(
+        'user_event_collaborator',
+        db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+        db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True)
+    )
+
+user_event_rsvp = db.Table(
+        'user_event_rsvp',
+        db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+        db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True)
+    )
+
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
@@ -66,18 +84,6 @@ class User(db.Model, SerializerMixin):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.following_id == id),
         backref=db.backref('following', lazy='dynamic'), lazy=True
-    )
-
-    user_event_collaborator = db.Table(
-        'user_event_collaborator',
-        db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
-        db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True)
-    )
-
-    user_event_rsvp = db.Table(
-        'user_event_rsvp',
-        db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
-        db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True)
     )
 
     created_at = db.Column(db.DateTime, server_default=db.func.now())
@@ -133,6 +139,7 @@ class User(db.Model, SerializerMixin):
     def __repr__(self):
         return f"<User: {self.last_name}, {self.first_name} / Username: {self.username}>"
     
+    
 class Event(db.Model, SerializerMixin):
     __tablename__ = 'events'
 
@@ -165,12 +172,12 @@ class Event(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     collaborators = db.relationship(
-        'User', secondary=user_event_collaborator,
+        'User', secondary="user_event_collaborator",
         backref=db.backref('events_collaborated', lazy='dynamic'), lazy=True
     )
 
     rsvps = db.relationship(
-        'User', secondary=user_event_rsvp,
+        'User', secondary="user_event_rsvp",
         backref=db.backref('events_rsvped', lazy='dynamic'), lazy=True
     )
 
@@ -187,6 +194,7 @@ class UserEventRelationship(db.Model):
     host = db.relationship('User', backref='hosted_event_relationships')
     collaborators = db.relationship('User', secondary='user_event_collaborator', backref='collaborator_event_relationships')
     rsvps = db.relationship('User', secondary='user_event_rsvp', backref='rsvp_event_relationships')
+    attendees = db.relationship('User', secondary="attendance", backref='events_attended')
 
 
 class Gig(db.Model, SerializerMixin):
