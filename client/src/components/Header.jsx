@@ -10,10 +10,10 @@ function Header() {
         <ParallaxLayer offset={0} speed={0.25}>
           <div class="animation_layer parallax" id="stage"></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.3}>
+        <ParallaxLayer offset={0} speed={0.2}>
           <div class="animation_layer parallax" id="singer"></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={-0.1}>
+        <ParallaxLayer offset={0} speed={0.3}>
           <div class="animation_layer parallax" id="foreground"></div>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0.3}>

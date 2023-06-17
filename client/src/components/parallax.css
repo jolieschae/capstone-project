@@ -1,3 +1,7 @@
+.parallax {
+    margin-top: -100px;
+}
+
 .animation, .animation_layer {
 	height: 1000px;
 }
