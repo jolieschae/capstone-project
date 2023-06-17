@@ -1,4 +1,5 @@
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.orm import relationship
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.hybrid import hybrid_property
 from datetime import datetime
@@ -11,6 +12,24 @@ followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
     db.Column('following_id', db.Integer, db.ForeignKey('users.id'), primary_key=True)
+)
+
+event_categories = db.Table(
+    'event_categories',
+    db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True),
+    db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
+)
+
+community_post_categories = db.Table(
+    'community_post_categories',
+    db.Column('community_post_id', db.Integer, db.ForeignKey('community_posts.id'), primary_key=True),
+    db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
+)
+
+gig_categories = db.Table(
+    'gig_categories',
+    db.Column('gig_id', db.Integer, db.ForeignKey('gigs.id'), primary_key=True),
+    db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
 )
 
 class User(db.Model, SerializerMixin):
@@ -27,7 +46,6 @@ class User(db.Model, SerializerMixin):
     location = db.Column(db.String, nullable=False)
     gender = db.Column(db.String, nullable=False)
     art_form = db.Column(db.String, nullable=False)
-    gallery = db.Column(db.String, nullable=True)
     
     active_events = db.relationship('Event', backref='organizer', lazy=True)
     rsvps = db.relationship('Event', secondary='rsvp', backref='participants', lazy=True)
@@ -37,12 +55,29 @@ class User(db.Model, SerializerMixin):
     community_posts = db.relationship('CommunityPost', backref='author', lazy=True)
     comments = db.relationship('Comment', backref='author', lazy=True)
     bookmarked_posts = db.relationship('Post', secondary='bookmarks', backref='bookmarked_by', lazy=True)
+    hosted_gigs = db.relationship('Gig', backref='host', lazy=True)
+    gig_applications = db.relationship('Gig', secondary='gig_applications', backref='responded_by', lazy=True)
+    saved_gigs = db.relationship('Gig', secondary='user_saves', backref='saved_by', lazy=True)
+    galleries = db.relationship('Gallery', backref='user', lazy=True)
+    gallery_images = db.relationship('GalleryImage', backref='user', lazy=True)
 
     followers = db.relationship(
         'User', secondary=followers,
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.following_id == id),
         backref=db.backref('following', lazy='dynamic'), lazy=True
+    )
+
+    user_event_collaborator = db.Table(
+        'user_event_collaborator',
+        db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+        db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True)
+    )
+
+    user_event_rsvp = db.Table(
+        'user_event_rsvp',
+        db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+        db.Column('event_id', db.Integer, db.ForeignKey('events.id'), primary_key=True)
     )
 
     created_at = db.Column(db.DateTime, server_default=db.func.now())
@@ -98,33 +133,193 @@ class User(db.Model, SerializerMixin):
     def __repr__(self):
         return f"<User: {self.last_name}, {self.first_name} / Username: {self.username}>"
     
-    class Event(db.Model):
-        __tablename__ = 'events'
+class Event(db.Model, SerializerMixin):
+    __tablename__ = 'events'
 
-        id = db.Column(db.Integer, primary_key=True)
-        host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-        title = db.Column(db.String, nullable=False)
-        thumbnail = db.Column(db.String, nullable=False)
-        category = db.Column(db.String, nullable=False)
-        description = db.Column(db.String, nullable=False)
-        venue = db.Column(db.String, nullable=True)
-        city = db.Column(db.String, nullable=False)
-        state = db.Column(db.String, nullable=False)
-        zip = db.Column(db.String, nullable=False)
-        address = db.Column(db.String, nullable=False)
-        start_time = db.Column(db.DateTime, nullable=False)
-        end_time = db.Column(db.DateTime, nullable=False)
-        age_restrictions = db.Column(db.String, nullable=True)
-        tickets = db.Column(db.String, nullable=True)
+    id = db.Column(db.Integer, primary_key=True)
+    host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    title = db.Column(db.String, nullable=False)
+    thumbnail = db.Column(db.String, nullable=False)
+    category = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
+    venue = db.Column(db.String, nullable=True)
+    city = db.Column(db.String, nullable=False)
+    state = db.Column(db.String, nullable=False)
+    zip = db.Column(db.String, nullable=False)
+    address = db.Column(db.String, nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    start_time = db.Column(db.DateTime, nullable=False)
+    end_time = db.Column(db.DateTime, nullable=False)
+    age_restrictions = db.Column(db.String, nullable=True)
+    tickets = db.Column(db.String, nullable=True)
+    is_active = db.Column(db.Boolean, default=datetime.now() < date if date else False)
 
 
-        host = db.relationship('User', backref='hosted_events', foreign_keys=[host_id])
-        collaborators = db.relationship('User', secondary='event_collaborators', backref='collaborated_events', lazy=True)
-        attendees = db.relationship('User', secondary='attendance', backref='attended_events', lazy=True)
-        favorited_by = db.relationship('User', secondary='favorites', backref='favorite_events', lazy=True)
+    host = db.relationship('User', backref='hosted_events', foreign_keys=[host_id])
+    collaborators = db.relationship('User', secondary='event_collaborators', backref='collaborated_events', lazy=True)
+    attendees = db.relationship('User', secondary='attendance', backref='attended_events', lazy=True)
+    categories = db.relationship('Category', secondary=event_categories, backref='events', lazy=True)
+    gallery_images = db.relationship('GalleryImage', backref='event', lazy=True)
 
-        created_at = db.Column(db.DateTime, server_default=db.func.now())
-        updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    collaborators = db.relationship(
+        'User', secondary=user_event_collaborator,
+        backref=db.backref('events_collaborated', lazy='dynamic'), lazy=True
+    )
+
+    rsvps = db.relationship(
+        'User', secondary=user_event_rsvp,
+        backref=db.backref('events_rsvped', lazy='dynamic'), lazy=True
+    )
+
+### user saves relationship, user-event relationship needs defining
+
+class UserEventRelationship(db.Model):
+    __tablename__ = 'user_event_relationships'
+
+    id = db.Column(db.Integer, primary_key=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    host_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    event = db.relationship('Event', backref='user_event_relationships')
+    host = db.relationship('User', backref='hosted_event_relationships')
+    collaborators = db.relationship('User', secondary='user_event_collaborator', backref='collaborator_event_relationships')
+    rsvps = db.relationship('User', secondary='user_event_rsvp', backref='rsvp_event_relationships')
+
+
+class Gig(db.Model, SerializerMixin):
+    __tablename__ = 'gigs'
+
+    id = db.Column(db.Integer, primary_key=True)
+    host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    collaborator_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False)
+    date_edited = db.Column(db.DateTime, nullable=False)
+    location = db.Column(db.String, nullable=False)
+    dates = db.Column(db.String, nullable=False)
+    start_time = db.Column(db.Time, nullable=False)
+    end_time = db.Column(db.Time, nullable=True)
+    estimated_compensation = db.Column(db.String, nullable=False)
+    position = db.Column(db.String, nullable=False)
+    is_open = db.Column(db.Boolean, nullable=False)
+    
+    categories = db.relationship('Category', secondary=gig_categories, backref='gigs', lazy=True)
+    applications = db.relationship('GigApplication', backref='gig', lazy=True)
+
+### user saves relationship
+
+class Category(db.Model):
+    __tablename__ = 'categories'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False, unique=True)
+
+    gigs = db.relationship('Gig', secondary='gig_categories', backref='categories', lazy=True)
+    community_posts = db.relationship('CommunityPost', backref='category', lazy=True)
+    events = db.relationship('Event', backref='category', lazy=True)
+
+class GigApplication(db.Model):
+    __tablename__ = 'gig_application'
+
+    id = db.Column(db.Integer, primary_key=True)
+    gig_id = db.Column(db.Integer, db.ForeignKey('gigs.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+### need to establish a way to link the host of the gig application, the collaborator on the gig application, and the user applying
+
+class CommunityPost(db.Model, SerializerMixin):
+    __tablename__ = 'community_posts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    content = db.Column(db.String, nullable=False)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    likes = db.relationship('Like', backref='community_post', lazy=True)
+    comments = db.relationship('Comment', backref='community_post', lazy=True)
+    categories = db.relationship('Category', secondary=community_post_categories, backref='community_posts', lazy=True)
+
+### user saves relationship
+
+class Like(db.Model, SerializerMixin):
+    __tablename__ = 'likes'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('community_posts.id'), nullable=False)
+    reply_id = db.Column(db.Integer, db.ForeignKey('replies.id'), nullable=True)
+
+    user = db.relationship('User', backref='likes')
+    post = db.relationship('CommunityPost', backref='likes')
+    reply = db.relationship('Reply', backref='likes')
+
+class Comment(db.Model, SerializerMixin):
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('community_posts.id'), nullable=False)
+    content = db.Column(db.String, nullable=False)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    likes = db.relationship('Like', backref='comment', lazy=True)
+    replies = db.relationship('Reply', backref='comment', lazy=True)
+
+class Reply(db.Model, SerializerMixin):
+    __tablename__ = 'replies'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'), nullable=False)
+    content = db.Column(db.String, nullable=False)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    likes = db.relationship('Like', backref='reply', lazy=True)
+
+class UserSaves(db.Model, SerializerMixin):
+    __tablename__ = 'user_saves'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'), nullable=True)
+    gig_id = db.Column(db.Integer, db.ForeignKey('gigs.id'), nullable=True)
+    community_post_id = db.Column(db.Integer, db.ForeignKey('community_posts.id'), nullable=True)
+
+class Gallery(db.Model, SerializerMixin):
+    __tablename__ = 'galleries'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    name = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=True)
+
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    images = db.relationship('GalleryImage', backref='gallery', lazy=True)
+
+
+class GalleryImage(db.Model, SerializerMixin):
+    __tablename__ = 'gallery_images'
+
+    id = db.Column(db.Integer, primary_key=True)
+    gallery_id = db.Column(db.Integer, db.ForeignKey('galleries.id'), nullable=False)
+    image_url = db.Column(db.String, nullable=False)
+    caption = db.Column(db.String, nullable=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+    
+    event = db.relationship('Event', backref='gallery_images', lazy=True)
+    user = db.relationship('User', backref='gallery_images', lazy=True)
+
 
 
 
