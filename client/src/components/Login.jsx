@@ -10,7 +10,6 @@ function Login({ onLogin }) {
   return (
     <div className="authContainer">
       <div className="logoContainer">
-        <img src="https://i.imgur.com/iIyzChS.gif" alt="Logo" className="logo" />
       </div>
       {showLogin ? (
         <>

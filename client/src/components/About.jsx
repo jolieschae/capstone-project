@@ -5,7 +5,7 @@ function About() {
   return (
     <div id="about">
             <div id="about-container">
-                <h1 id="about-title">pullup</h1>
+                <h1 id="about-title">PULLUP</h1>
                 <p id="about-content">
                 pullup.<br/><br/>
                 

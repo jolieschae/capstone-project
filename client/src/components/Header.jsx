@@ -10,16 +10,16 @@ function Header() {
         <ParallaxLayer offset={0} speed={0.25}>
           <div class="animation_layer parallax" id="stage"></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.23}>
+        <ParallaxLayer offset={0} speed={0.22}>
           <div class="animation_layer parallax" id="singer"></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.18}>
+        <ParallaxLayer offset={0} speed={0.17}>
           <div class="animation_layer parallax" id="foreground"></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.25}>
+        <ParallaxLayer offset={0} speed={0.19}>
           <div class="animation_layer parallax" id="midground"></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.25}>
+        <ParallaxLayer offset={0} speed={0.22}>
           <div class="animation_layer parallax" id="background"></div>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={0.0}>
