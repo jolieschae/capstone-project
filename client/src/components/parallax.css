@@ -1,5 +1,5 @@
 .parallax {
-    margin-top: -100px;
+    margin-top: -150px;
 }
 
 .animation, .animation_layer {
@@ -14,7 +14,7 @@
 
 .animation_layer {
 	background-position: bottom center;
-	background-size: auto 738px;
+	background-size: auto 638px;
 	background-repeat: no-repeat;
 	width: 100%;
 	position: absolute;
@@ -32,13 +32,58 @@
 }
 
 #foreground {
-  background-image: url("https://i.imgur.com/KqSLXWu.png");
+  background-image: url("https://i.imgur.com/2vJredb.png");
 }
 
 #midground {
-  background-image: url("https://i.imgur.com/OfOfUf0.png");
+  background-image: url("https://i.imgur.com/2olocDo.png");
 }
 
 #background {
   background-image: url("https://i.imgur.com/FDEVN95.png");
 }
+
+#about {
+    margin-top: -10px;
+    background-color: #000000;
+    height: 100vh;
+  }
+  
+  #about-container {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 70px;
+  }
+  
+  #about-title {
+    color: #ffaf1b;
+    font-size: 35px;
+    font-weight: 600;
+    font-family: "Helvetica Neue";
+  }
+  
+  #about-content {
+    color: #ffaf1b;
+    font-size: 20px;
+  }
+  
+  #about-footer {
+    color: #ffaf1b;
+    font-size: 15px;
+    font-weight: 400;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin-bottom: 20px;
+  
+  }
+  
+  #about-devsense {
+    text-decoration: none;
+    color: #ffaf1b;
+    font-size: 15px;
+    font-weight: 600;
+  }
