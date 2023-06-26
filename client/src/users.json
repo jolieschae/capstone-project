@@ -1,0 +1,153 @@
+{
+    "users" :
+    [
+        {
+            "id": 1,
+            "username": "kitchenboys",
+            "email": "kitchenboys@gmail.com",
+            "birthday": "03/28/95",
+            "first_name": "Simon",
+            "last_name": "Melekhov",
+            "location": "New York City",
+            "gender": "He/Him",
+            "art_form": "Musician",
+            "avatar": ""
+        },
+
+        {
+            "id": 2,
+            "username": "montanajanel",
+            "email": "montanajanel@gmail.com",
+            "birthday": "08/10/98",
+            "first_name": "Montana",
+            "last_name": "Janel",
+            "location": "New York City",
+            "gender": "She/Her",
+            "art_form": "Singer",
+            "avatar": ""
+        },
+
+        {
+            "id": 3,
+            "username": "sleepypharaoh",
+            "email": "sleepypharaoah@gmail.com",
+            "birthday": "09/18/95",
+            "first_name": "Harrison",
+            "last_name": "Quamily",
+            "location": "New York City",
+            "gender": "He/Him",
+            "art_form": "Producer",
+            "avatar": ""
+        },
+
+        {
+            "id": 4,
+            "username": "orson",
+            "email": "orson@gmail.com",
+            "birthday": "04/01/92",
+            "first_name": "Orson",
+            "last_name": "The DJ",
+            "location": "New York City",
+            "gender": "He/Him",
+            "art_form": "DJ",
+            "avatar": ""
+        },
+
+        {
+            "id": 5,
+            "username": "jonryanisdead",
+            "email": "jonryan@gmail.com",
+            "birthday": "10/10/90",
+            "first_name": "Jon",
+            "last_name": "Sugimoto",
+            "location": "New York City",
+            "gender": "He/Him",
+            "art_form": "Filmmaker",
+            "avatar": ""
+        },
+
+        {
+            "id": 6,
+            "username": "savannahsnow",
+            "email": "savannahsnow@gmail.com",
+            "birthday": "02/12/95",
+            "first_name": "Savannah",
+            "last_name": "Snow",
+            "location": "New York City",
+            "gender": "She/Her",
+            "art_form": "Comedian",
+            "avatar": ""
+        },
+
+        {
+            "id": 7,
+            "username": "",
+            "email": "",
+            "birthday": "03/28/95",
+            "first_name": "",
+            "last_name": "",
+            "location": "New York City",
+            "gender": "He/Him",
+            "art_form": "",
+            "avatar": ""
+        },
+
+        {
+            "id": 8,
+            "username": "jolieschae",
+            "email": "jolieschae@gmail.com",
+            "birthday": "07/14/97",
+            "first_name": "Jolie",
+            "last_name": "Gielchinsky",
+            "location": "New York City",
+            "gender": "She/Her",
+            "art_form": "Painter",
+            "avatar": ""
+        },
+
+        {
+            "id": 9,
+            "username": "riri",
+            "email": "sarina@gmail.com",
+            "birthday": "06/03/98",
+            "first_name": "Sarina",
+            "last_name": "",
+            "location": "New York City",
+            "gender": "She/Her",
+            "art_form": "Fashion Designer",
+            "avatar": ""
+        },
+
+        {
+            "id": 10,
+            "username": "teesndsneaks",
+            "email": "deandre@gmail.com",
+            "birthday": "09/19/95",
+            "first_name": "DeAndre",
+            "last_name": "Mitchells",
+            "location": "New York City",
+            "gender": "He/Him",
+            "art_form": "Photographer",
+            "avatar": ""
+        },
+
+        {
+            "id": 11,
+            "username": "zummy",
+            "email": "zummy@gmail.com",
+            "birthday": "04/05/96",
+            "first_name": "Adam",
+            "last_name": "Mohammed",
+            "location": "New York City",
+            "gender": "He/Him",
+            "art_form": "Dancer",
+            "avatar": ""
+        }
+
+
+
+
+
+    ]
+
+}

@@ -9,8 +9,6 @@ function Login({ onLogin }) {
 
   return (
     <div className="authContainer">
-      <div className="logoContainer">
-      </div>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
@@ -18,7 +16,7 @@ function Login({ onLogin }) {
             Don't have an account? &nbsp;
           </p>
           <button className="authButton" onClick={() => setShowLogin(false)}>
-              Sign Up
+              Register
             </button>
         </>
       ) : (

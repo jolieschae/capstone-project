@@ -4,28 +4,26 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Nav from "./Nav";
 import Login from "./Login";
+import SignUpForm from "./SignUpForm"
 import Profile from "./Profile";
+import Events from "./Events"
 import Error from "./Error";
 import './app.css'
 
 function App() {
   return (
-    <div><Nav/>
+    <div>
+      {/* <Nav/> */}
+    {/* <MyProvider> */}
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<SignUpForm />} />
       <Route path='/profile' element={<Profile />} /> 
+      <Route path='/events' element={<Events />} />
       <Route path='*' element={<Error />} />
       </Routes>
-    {/* <MyProvider>
-      <Nav/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/profile' element={<Profile />} /> 
-        <Route path='*' element={<Error />} />
-        </Routes>
-      </MyProvider>   */}
+      {/* </MyProvider>   */}
       </div>
       
     )

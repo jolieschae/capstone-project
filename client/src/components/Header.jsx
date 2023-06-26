@@ -6,21 +6,21 @@ import './parallax.css'
 function Header() {
   return (
     <div className="parallax">
-      <Parallax pages={2} style={{ top: '0', left: '0' }} class="animation">
+      <Parallax pages={2} style={{ top: '0', left: '0' }} className="animation">
         <ParallaxLayer offset={0} speed={0.25}>
-          <div class="animation_layer parallax" id="stage"></div>
+          <div className="animation_layer parallax" id="stage"></div>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0.22}>
-          <div class="animation_layer parallax" id="singer"></div>
+          <div className="animation_layer parallax" id="singer"></div>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0.17}>
-          <div class="animation_layer parallax" id="foreground"></div>
+          <div className="animation_layer parallax" id="foreground"></div>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0.19}>
-          <div class="animation_layer parallax" id="midground"></div>
+          <div className="animation_layer parallax" id="midground"></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.22}>
-          <div class="animation_layer parallax" id="background"></div>
+        <ParallaxLayer offset={0} speed={0.1}>
+          <div className="animation_layer parallax" id="background"></div>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={0.0}>
           <About />
