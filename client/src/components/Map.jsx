@@ -1,8 +1,9 @@
 import React from 'react'
+import "./events.css"
 
 function Map() {
   return (
-    <div>Map</div>
+    <div className="mapContainer">Map</div>
   )
 }
 

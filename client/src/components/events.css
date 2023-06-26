@@ -9,24 +9,45 @@
     color: #eee;
     user-select: none;
   }
+
+  .contentContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    }
+
+.eventContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+      
   
+  .mapContainer {
+    flex: 1;
+    height: 500px;
+    background-color: #ccc;
+  }
+
   .eventCard {
     font-family: Azonix;
     font-weight: Bold;
-    user-select:none;
-    max-width: 250px;
-    margin: 1rem;
+    user-select: none;
+    margin: 0.5rem;
     background-color: #282c34;
     background: linear-gradient(0deg, rgba(40,44,52,1) 0%, rgba(17,0,32,.5) 100%);
     box-shadow: 0 7px 20px 5px #00000088;
-    border-radius: .7rem;
+    border-radius: 0.7rem;
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
     overflow: hidden;
-    transition: .5s all;
-    max-height: 400px;
     transition: 0.5s all;
-    width: 175px;
+    max-width: 175px;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -34,12 +55,6 @@
     position: relative;
     margin-right: 10px;
     margin-bottom: 5px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    padding-block: 10px;
-    position: relative;
   }
 
   .eventCard hr{
@@ -50,21 +65,18 @@
     
   }
   
-  .eventCard ins{
-    text-decoration: none;
-  }
-  
-  .eventCard .main{
+.main {
+    padding: .5rem;
     display: flex;
     flex-direction: column;
-    width: 90%;
-    padding: 1rem;
-  }
+    align-items: flex-start;
+    }
+    
 
 .thumbnail{
     border-radius: .5rem;
     max-width: 100%;
-    height: 175px;
+    height: auto;
     object-fit: cover;
     align-items: center;
   }
@@ -72,24 +84,40 @@
 .eventTitle {
     font-family: Azonix;
     font-size: 15px;
-    margin-bottom: 0px;
+    margin-bottom: -10px;
     text-align: left;
   }
+  
+
+.subTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
 .eventDate {
     font-size: 10px;
-    font-weight: normal;
+    font-family: Adam;
+    font-weight: 100;
+    align-items: left;
     text-align: left;
-    line-height: 0px;
   }
 
 .ageRestriction {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: normal;
-    text-align: left;
-    line-height: 0px;
+    align-items: right;
+    text-align: right;
+
   }
-  
+
+.subtTitle,
+.venue {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1px;
+}
   
 .description {
     margin: .5rem 0;
@@ -99,6 +127,27 @@
     line-height: 1.5;
     width: 100%;
     display: block;
+    display: block;
+    max-height: 150px; 
+    overflow: auto;
+    font-family: Adam;
+  }
+
+  .description::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .description::-webkit-scrollbar-track {
+    background-color: #f1f1f100;
+  }
+  
+  .description::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  .description::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
   }
 
 .tickets {
@@ -112,122 +161,51 @@
   }
   
 .eventInfo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     text-align: left;
-    line-height: 0px;
-    display: flex;
     flex-wrap: wrap;
   }
   
 .venue {
-    display: flex;
-    align-items: left;
     color: #ee83e5;
     font-weight: 550;
     font-size: 9px;
-    line-height: 0px;
-    width: 45%;
+    text-align: left;
   }
   
 .venue ins {
-    margin-left: -.3rem;
     margin-right: .5rem;
-    line-height: 0px;
-    align-items: left;
   }
   
   
 .location {
-    display: flex;
-    align-items: right;
     color: #a89ec9;
-    margin-right: .2rem;
     font-size: 9px;
-    line-height: 0px;
     font-weight: bold;
-    margin-bottom: 0px;
-    text-align: right;
+    margin-bottom: .5rem;
+    text-align: left;
   }
   
 .location ins {
     margin: .5rem;
     margin-bottom: .4rem;
-    line-height: 0px;
   }
   
 .artist {
     display: inline-block;
     align-items: left;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    line-height: 0px;
-    
   }
 
 .artist p {
-    font-size: 12px; 
-    line-height: 0px;
+    font-size: 9px; 
   }
   
-.artist ins {
+.artform {
     color: #a89ec9;
     text-decoration: none;
-    line-height: 0px;
+    line-height: 1.2;
   }
   
-  .bg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 120px;
-    margin: 0 auto;
-    width: 100%;
-    background-color: #282c34;
-    background: linear-gradient(0deg, rgba(40,44,52,1) 0%, rgba(17,0,32,.5) 100%);
-    box-shadow: 0 7px 20px 5px #00000088;
-    border-radius: .7rem .7rem 0 0;
-    text-align: center;
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-  }
-  
-  .bg h2 {
-    color: #eee;
-    font-size: 2rem;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-    text-shadow: 0 2px 2px rgba(0,0,0,0.3);
-  }
-  
-  @media screen and (min-width: 768px) {
-    .eventsContainer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content:last baseline;
-        align-items: flex-start;
-        padding: 10px;
-        max-width: 1000px;
-        margin: 0 auto;
-        justify-content: center;
-        
-      }
-    
-    .eventCard {
-      width: calc(33.33% - 20px);
-      margin-bottom: 10px;
-    }
-  }
-  
-  @media screen and (min-width: 992px) {
-    .eventCard {
-      width: calc(25% - 20px);
-    }
-  }
-  
-  .eventContainerButton {
+  .eventButton {
     height: 3rem;
     margin-top: 1rem;
     padding: 0.1rem 1rem;
@@ -247,3 +225,35 @@
     margin-left: 225px;
     margin-bottom: 20px;
   }
+
+  /* @media screen and (min-width: 768px) {
+
+    
+    .eventsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 10px;
+        max-width: 1000px;
+        margin: 0 auto;
+        
+      }
+    
+      @media screen and (max-width: 1200px) {
+        .eventCard {
+          flex-basis: calc(33.33% - 5px);
+        }
+      }
+      
+      @media screen and (max-width: 992px) {
+        .eventCard {
+          flex-basis: calc(50% - 5px);
+        }
+      }
+      
+      @media screen and (max-width: 576px) {
+        .eventCard {
+          flex-basis: calc(100% - 5px);
+        }
+      }
+    } */

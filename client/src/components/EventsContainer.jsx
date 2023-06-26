@@ -93,14 +93,14 @@ function EventsContainer() {
       </div>
 
 
-      <div className="eventsContainer">
+      <div className="eventContainer">
         {renderEventCards.slice(startIndex, startIndex + 6)}
       </div>
 
       <div className="eventButtonContainer">
-        {startIndex > 0 && <button class="eventContainerButton" onClick={handlePrevClick}>Prev</button>}
+        {startIndex > 0 && <button class="eventButton" onClick={handlePrevClick}>Prev</button>}
         {startIndex + 6 < renderEventCards.length && (
-          <button className="eventContainerButton" onClick={handleNextClick}>Next</button>)}
+          <button className="eventButton" onClick={handleNextClick}>Next</button>)}
       </div>
 
     </div>
