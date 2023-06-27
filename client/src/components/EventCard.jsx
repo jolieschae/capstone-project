@@ -22,8 +22,19 @@ function EventCard({ event }) {
           </div>
         </div>
         <div className='eventInfo'>
-          <p style={{ display: isClicked ? 'block' : 'none' }} className="description">{isClicked ? event.description : ''}</p>
-          <p style={{ display: isClicked ? 'block' : 'none' }} className="tickets">{isClicked ? event.tickets : ''}</p>
+          
+        <p style={{ display: isClicked ? 'block' : 'none' }} className="description">{isClicked ? event.description : ''}</p>
+          <div className="ticketInfo">
+            {event.tickets ? (
+            <div style={{ display: isClicked ? 'block' : 'none' }} className="ticketButtonContainer">
+              <a href={event.tickets}>
+                <button className="ticketButton">Tickets</button>
+              </a>
+            </div>
+          ) : (
+            <p style={{ display: isClicked ? 'block' : 'none' }} className="tickets"> No tickets, just pull up!</p>
+          )}
+          </div>
           <p className="venue"><ins>◘</ins>{event.venue}</p>
           <p className="location">⟟ {event.location.neighborhood}</p>
         </div>
@@ -32,8 +43,9 @@ function EventCard({ event }) {
           {/* <div className='wrapper'>
             <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80" alt="Creator" />
           </div> */}
-          <p>{event.user} <ins className="artform">|| {event.artform}</ins></p>
+          <p>{event.user} <ins className="artform">||</ins> {event.artform}</p>
         </div>
+         <div className="addButtonDiv"><button className="addButton">RSVP</button></div>
       </div>
     </div>
   )

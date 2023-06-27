@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import EventCard from './EventCard'
 import './events.css'
 import { useEffect } from 'react'
+import './searchBar.css'
 
 function EventsContainer() {
   const [events, setEvents] = useState([]);
@@ -52,7 +53,6 @@ function EventsContainer() {
       event.price,
       event.tickets,
       event.share,
-      event.description,
       ...(event.tags || []),
       ...(event.collaborators || [])
     ];
@@ -72,21 +72,14 @@ function EventsContainer() {
   return (
     <div>
 
-      <div id="cover">
-        <form className="searchbar">
+      <div id="searchBarBox">
+        <form className="searchContainer">
           <div className="searchOuterCell">
             <div className="td">
               <input 
                 type="text" 
-                placeholder="Search events" 
-                onChange={handleSearch} 
-              />
-            </div>
-            <div className="td" id="s-cover">
-              <button classname="searchSubmitButton" type="submit">
-                <div id="s-circle"></div>
-                <span></span>
-              </button>
+                placeholder="search events" 
+                onChange={handleSearch} />
             </div>
           </div>
         </form>

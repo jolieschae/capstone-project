@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 // import MyProvider, { MyContext } from "./MyProvider";
 import Home from "./Home";
 import Nav from "./Nav";
@@ -11,10 +11,14 @@ import Error from "./Error";
 import './app.css'
 
 function App() {
+
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
+
   return (
     <div>
-      {/* <Nav/> */}
-    {/* <MyProvider> */}
+      {!isHomePage && <Nav />}
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path='/login' element={<Login />} />
