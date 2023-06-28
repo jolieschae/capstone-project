@@ -1,30 +1,29 @@
-import { useState, useEffect, createContext } from "react";
-// import Login from "./Login";
+import React, { createContext, useEffect, useState } from 'react';
+import axios from 'axios';
 
-export const MyContext = createContext()
+export const MyContext = createContext();
 
-function MyProvider() {
+const MyProvider = ({ children }) => {
+  const [eventsData, setEventsData] = useState([]);
 
-    // const [user, setUser] = useState(null)
+  useEffect(() => {
+    fetchEventsData();
+  }, []);
 
-    // useEffect(() => {
-    //     // auto-login
-    //     fetch("/check_session").then((r) => {
-    //     if (r.ok) {
-    //         r.json().then((user) => setUser(user));
-    //     }
-    //     });
-    // }, []);
+  const fetchEventsData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/events');
+      setEventsData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    // if (!user) return <Login onLogin= {setUser}/>;
+  return (
+    <MyContext.Provider value={{ eventsData }}>
+      {children}
+    </MyContext.Provider>
+  );
+};
 
-    return (
-        <MyContext.Provider
-            // value={({user: user, setUser: setUser})}
-        >
-            {/* {children} */}
-        </MyContext.Provider>
-    )
-}
-
-export default MyProvider
+export default MyProvider;
