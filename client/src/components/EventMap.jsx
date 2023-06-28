@@ -1,28 +1,29 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import './events.css';
 import { MyContext } from './MyProvider';
 
-function Map() {
+function EventMap() {
   const { eventsData } = useContext(MyContext);
   const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
     const fetchMarkers = async () => {
       const markerPromises = eventsData.map(async (event) => {
-        const { address } = event;
+        const { location } = event;
 
-        if (address && address.street && address.city) {
-          const { street, city, state, zip } = address;
+        if (location && location.street && location.city) {
+          const { street, city, state, zip } = location;
           const fullAddress = `${street}, ${city}, ${state}, ${zip}`;
           const coordinates = await geocodeAddress(fullAddress);
 
           if (coordinates) {
             return {
               id: event.id,
-              position: [coordinates.latitude, coordinates.longitude],
+              position: [coordinates.lat, coordinates.lon],
               title: event.title,
               description: event.description,
             };
@@ -39,16 +40,16 @@ function Map() {
     fetchMarkers();
   }, [eventsData]);
 
-  const geocodeAddress = async (address) => {
+  const geocodeAddress = async (location) => {
     try {
       const response = await axios.get(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`
       );
       console.log('Response:', response.data);
       const { lat, lon } = response.data[0];
       console.log('Latitude:', lat); 
       console.log('Longitude:', lon); 
-      return { latitude: parseFloat(lat), longitude: parseFloat(lon) };
+      return { lat: parseFloat(lat), lon: parseFloat(lon) };
     } catch (error) {
       console.log('Error:', error);
       return null;
@@ -89,4 +90,5 @@ function Map() {
   );
 }
 
-export default Map;
+export default EventMap;
+

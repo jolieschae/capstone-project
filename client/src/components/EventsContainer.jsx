@@ -20,6 +20,63 @@ function EventsContainer() {
     setCurrentPage(1);
   }, [eventsData]);
 
+  useEffect(() => {
+    const filteredEvents = eventsData.filter((event) => {
+      const isMatchingCategory =
+        selectedCategory === '' || event.category === selectedCategory;
+
+      const isMatchingSubcategory =
+      selectedCategory === '' || event.subcategory === selectedCategory;
+
+      if (searchTerm === '') {
+        return isMatchingCategory || isMatchingSubcategory;
+      }
+
+      const searchableFields = [
+        event.title,
+        event.category,
+        event.subcategory,
+        event.artform,
+        event.artist,
+        event.location.street,
+        event.location.street2,
+        event.location.city,
+        event.location.state,
+        event.location.zip,
+        event.location.neighborhood,
+        event.venue,
+        event.calendar.time,
+        event.calendar.date,
+        event.calendar.day,
+        event.price,
+        event.tickets,
+        event.share,
+        ...(event.tags || []),
+        ...(event.collaborators || []),
+      ];
+
+      return (
+        (isMatchingCategory || isMatchingSubcategory) &&
+        searchableFields.some((field) => {
+          if (typeof field === 'string') {
+            return field.toLowerCase().includes(searchTerm.toLowerCase());
+          } else if (typeof field === 'object') {
+            const values = Object.values(field);
+            return values.some(
+              (value) =>
+                value && value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+            );
+          }
+          return false;
+        })
+      );
+    });
+
+    setVisibleEvents(filteredEvents);
+    setTotalPages(Math.ceil(filteredEvents.length / itemsPerPage));
+    setCurrentPage(1);
+  }, [searchTerm, selectedCategory]);
+
   const handlePrevClick = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
@@ -30,58 +87,15 @@ function EventsContainer() {
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
-    setCurrentPage(1);
   };
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    setSearchTerm('');
-    setCurrentPage(1);
   };
 
-  const filteredEvents = visibleEvents.filter((event) => {
-    const searchableFields = [
-      event.title,
-      event.category,
-      event.subcategory,
-      event.artform,
-      event.artist,
-      event.location.street,
-      event.location.street2,
-      event.location.city,
-      event.location.state,
-      event.location.zip,
-      event.location.neighborhood,
-      event.venue,
-      event.calendar.time,
-      event.calendar.date,
-      event.calendar.day,
-      event.price,
-      event.tickets,
-      event.share,
-      ...(event.tags || []),
-      ...(event.collaborators || []),
-    ];
-    return (
-      searchableFields.some((field) => {
-        if (typeof field === 'string') {
-          return field.toLowerCase().includes(searchTerm.toLowerCase());
-        } else if (typeof field === 'object') {
-          const values = Object.values(field);
-          return values.some(
-            (value) =>
-              value && value.toString().toLowerCase().includes(searchTerm.toLowerCase())
-          );
-        }
-        return false;
-      }) &&
-      (selectedCategory === '' || event.category === selectedCategory)
-    );
-  });
-
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + itemsPerPage, filteredEvents.length);
-  const renderEventCards = filteredEvents
+  const endIndex = Math.min(startIndex + itemsPerPage, visibleEvents.length);
+  const renderEventCards = visibleEvents
     .slice(startIndex, endIndex)
     .map((event) => <EventCard key={event.id} event={event} />);
 
@@ -96,71 +110,64 @@ function EventsContainer() {
           </div>
         </form>
         <div className="categoryContainer">
-          <span className="categoryLinks"
-            id={selectedCategory === '' ? 'active' : ''}
+          <span
+            className={`categoryLinks ${selectedCategory === '' ? 'active' : ''}`}
             onClick={() => handleCategoryClick('')}
           >
             All
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'music' ? 'active' : ''}
-            onClick={() => handleCategoryClick('music')}
+            className={`categoryLinks ${selectedCategory === 'Music' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('Music')}
           >
             Music
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'Dj' ? 'active' : ''}
-            onClick={() => handleCategoryClick('Dj')}
+            className={`categoryLinks ${selectedCategory === 'DJ' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('DJ')}
           >
-            Dj
+            DJs
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'photography' ? 'active' : ''}
-            onClick={() => handleCategoryClick('photography')}
+            className={`categoryLinks ${selectedCategory === 'Photography' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('Photography')}
           >
             Photography
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'fashion' ? 'active' : ''}
-            onClick={() => handleCategoryClick('fashion')}
+            className={`categoryLinks ${selectedCategory === 'Fashion & Textiles' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('Fashion & Textiles')}
           >
             Fashion
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'theater' ? 'active' : ''}
-            onClick={() => handleCategoryClick('theater')}
+            className={`categoryLinks ${selectedCategory === 'Theater' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('Theater')}
           >
             Theater
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'visual arts' ? 'active' : ''}
-            onClick={() => handleCategoryClick('visual arts')}
+            className={`categoryLinks ${selectedCategory === 'Visual Arts' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('Visual Arts')}
           >
             Visual Arts
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'film' ? 'active' : ''}
-            onClick={() => handleCategoryClick('film')}
+            className={`categoryLinks ${selectedCategory === 'Film' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('Film')}
           >
             Film
           </span>
           <span
-            className="categoryLinks"
-            id={selectedCategory === 'comedy' ? 'active' : ''}
-            onClick={() => handleCategoryClick('comedy')}
+            className={`categoryLinks ${selectedCategory === 'Comedy' ? 'active' : ''}`}
+            onClick={() => handleCategoryClick('Comedy')}
           >
             Comedy
           </span>
-          </div>
         </div>
+      </div>
 
+      <div className="eventContainerWrapper">
       <div className="eventContainer">{renderEventCards}</div>
 
       <div className="eventButtonContainer">
@@ -175,6 +182,7 @@ function EventsContainer() {
           </button>
         )}
       </div>
+    </div>
     </div>
   );
 }

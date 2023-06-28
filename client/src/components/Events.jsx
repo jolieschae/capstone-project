@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import EventsContainer from './EventsContainer';
-import Map from './Map';
+import EventMap from './EventMap';
 import { MyContext } from './MyProvider';
 import './events.css';
 
@@ -10,7 +10,7 @@ function Events() {
   return (
     <div className="contentContainer">
       <EventsContainer eventsData={eventsData} />
-      <Map eventsData={eventsData} />
+      <EventMap eventsData={eventsData} />
     </div>
   );
 }

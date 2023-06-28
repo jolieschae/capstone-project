@@ -16,7 +16,12 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 10px;
-    margin: 15px;
+  }
+
+  .eventButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .eventContainer {
@@ -24,7 +29,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-left: 10px;
     width: 640px;
     padding: 10px;
     box-shadow: rgba(255, 255, 255, 0.16) 1px 1px 10px;
@@ -36,7 +40,7 @@
   .mapContainer {
     flex: 1;
     height: 500px;
-    margin-left: -190px;
+    margin-left: -300px;
     margin-top: 60px;
     padding: 10px;
     box-shadow: rgba(255, 255, 255, 0.16) 1px 1px 10px;
@@ -312,56 +316,68 @@
 #addButton {
     margin-top: 5px
 }
-  
-  .eventButton {
-    height: 3rem;
-    margin-top: 1rem;
-    padding: 0.1rem 1rem;
-    border: none;
-    background-color: #ee83e5;
-    color: #282c34;
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
-  }  
- 
-  
-  .eventButtonContainer {
+
+.eventButtonContainer {
     display: flex;
     justify-content: left;
-    margin-top: 5px;
-    margin-left: 225px;
+    margin-left: 290px;
+    margin-top: 15px;
     margin-bottom: 20px;
   }
+  
+.eventButton {
+    --color: #ffaf1b;
+    --color2: rgb(30, 24, 10);
+    padding: 0.8em 1.75em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+  }  
 
-  /* @media screen and (min-width: 768px) {
-
-    
-    .eventsContainer {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        padding: 10px;
-        max-width: 1000px;
-        margin: 0 auto;
-        
-      }
-    
-      @media screen and (max-width: 1200px) {
-        .eventCard {
-          flex-basis: calc(33.33% - 5px);
-        }
-      }
-      
-      @media screen and (max-width: 992px) {
-        .eventCard {
-          flex-basis: calc(50% - 5px);
-        }
-      }
-      
-      @media screen and (max-width: 576px) {
-        .eventCard {
-          flex-basis: calc(100% - 5px);
-        }
-      }
-    } */
+  .eventButton::after, .eventButton::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+   }
+   
+   .eventButton::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .eventButton:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .eventButton:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+   }
+   
+   .eventButton:hover {
+    color: var(--color2);
+   }
+   
+   .eventButton:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+   }
+  

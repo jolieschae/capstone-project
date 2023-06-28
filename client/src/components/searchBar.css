@@ -7,10 +7,21 @@
 }
 
 .categoryLinks {
-  margin-left: 10px;
-  cursor: pointer;
-  color: #ffaf1b;
   font-family: abeatbyKai;
+  margin-left: 10px;
+  margin: 0 10px;
+  text-decoration: none;
+  color: rgb(209, 209, 209);
+  transition: transform 0.3s ease-in-out;
+  color: #ffaf1b;
+  cursor: pointer;
+}
+
+.categoryLinks:hover,
+.categoryLinks:visited {
+  text-decoration: none;
+  color: #ffaf1b;
+  transform: scale(1.1); 
 }
 
 .searchBarBox {

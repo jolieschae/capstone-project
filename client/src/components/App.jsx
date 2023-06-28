@@ -4,9 +4,10 @@ import MyProvider, { MyContext } from "./MyProvider";
 import Home from "./Home";
 import Nav from "./Nav";
 import Login from "./Login";
-import SignUpForm from "./SignUpForm"
+import SignUpForm from "./SignUpForm";
 import Profile from "./Profile";
-import Events from "./Events"
+import Events from "./Events";
+import EventMap from "./EventMap";
 import Error from "./Error";
 import './app.css'
 
@@ -27,6 +28,7 @@ function App() {
       <Route path='/register' element={<SignUpForm />} />
       <Route path='/profile' element={<Profile />} /> 
       <Route path='/events' element={<Events />} />
+      <Route path='/eventmap' element={<EventMap />} />
       <Route path='*' element={<Error />} />
       </Routes>
       </MyProvider>

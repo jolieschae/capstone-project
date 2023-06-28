@@ -3,15 +3,15 @@ import { MyContext } from './MyProvider';
 import './events.css';
 
 function EventCard({ event }) {
-  const { addToFavorites } = useContext(MyContext);
+  const { addRSVP } = useContext(MyContext);
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
   };
 
-  const handleFavoriteClick = () => {
-    addToFavorites(event.id);
+  const handleRSVPClick = () => {
+    addRSVP(event.id);
   };
 
   return (
@@ -57,8 +57,8 @@ function EventCard({ event }) {
           </p>
         </div>
         <div className="addButtonDiv">
-          <button className="addButton" onClick={handleFavoriteClick}>
-            Add to Favorites
+          <button className="addButton" onClick={handleRSVPClick}>
+            RSVP
           </button>
         </div>
       </div>

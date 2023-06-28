@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "nominatim-geocoder": "^0.1.4",
+    "react-leaflet": "^4.2.1"
+  }
+}
