@@ -35,12 +35,12 @@
     border-radius: 8px;
     background-color: rgb(31, 31, 31);
     margin-top: -40px;
+    margin-right: 10px;
   }
   
   .mapContainer {
     flex: 1;
     height: 500px;
-    margin-left: -300px;
     margin-top: 60px;
     padding: 10px;
     box-shadow: rgba(255, 255, 255, 0.16) 1px 1px 10px;
@@ -328,7 +328,7 @@
 .eventButton {
     --color: #ffaf1b;
     --color2: rgb(30, 24, 10);
-    padding: 0.8em 1.75em;
+    padding: 0.5em 1em;
     background-color: transparent;
     border-radius: 6px;
     border: .3px solid var(--color);

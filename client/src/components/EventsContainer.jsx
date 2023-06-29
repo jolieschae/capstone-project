@@ -89,8 +89,8 @@ function EventsContainer() {
     setSearchTerm(event.target.value);
   };
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+  const handleCategoryClick = (value) => {
+    setSelectedCategory(value);
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -110,61 +110,18 @@ function EventsContainer() {
           </div>
         </form>
         <div className="categoryContainer">
-          <span
-            className={`categoryLinks ${selectedCategory === '' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('')}
-          >
-            All
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'Music' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('Music')}
-          >
-            Music
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'DJ' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('DJ')}
-          >
-            DJs
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'Photography' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('Photography')}
-          >
-            Photography
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'Fashion & Textiles' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('Fashion & Textiles')}
-          >
-            Fashion
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'Theater' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('Theater')}
-          >
-            Theater
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'Visual Arts' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('Visual Arts')}
-          >
-            Visual Arts
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'Film' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('Film')}
-          >
-            Film
-          </span>
-          <span
-            className={`categoryLinks ${selectedCategory === 'Comedy' ? 'active' : ''}`}
-            onClick={() => handleCategoryClick('Comedy')}
-          >
-            Comedy
-          </span>
-        </div>
+  <select value={selectedCategory} onChange={(e) => handleCategoryClick(e.target.value)}>
+    <option value="">All</option>
+    <option value="Music">Music</option>
+    <option value="DJ">DJs</option>
+    <option value="Photography">Photography</option>
+    <option value="Fashion & Textiles">Fashion</option>
+    <option value="Theater">Theater</option>
+    <option value="Visual Arts">Visual Arts</option>
+    <option value="Film">Film</option>
+    <option value="Comedy">Comedy</option>
+  </select>
+</div>
       </div>
 
       <div className="eventContainerWrapper">

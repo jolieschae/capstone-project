@@ -5,7 +5,6 @@ import './nav.css'
 function Nav() {
   return (
     <div className='navBar'>
-      {/* <img src="" height='175px' alt='logo'/> */}
       <div className="navContent">
         <h1 className='tagLine'>pullup</h1>
         <div className="links">

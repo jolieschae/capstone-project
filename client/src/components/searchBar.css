@@ -6,6 +6,38 @@
   justify-content: flex-end; 
 }
 
+.categoryContainer select {
+  appearance: none; /* Remove default styling */
+  padding: 4px 8px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  border: 1px solid #ccc; /* Add border style */
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(12, 0, 23, 0.665) 100%);
+  box-shadow: 0 7px 20px 5px #00000088;
+  border-radius: 0.7rem;
+  backdrop-filter: blur(7px);
+  color:#ffaf1b;
+  cursor: pointer; /* Add cursor style */
+}
+
+/* Style the arrow icon */
+.categoryContainer select::after {
+  content: "\25BE"; /* Unicode for down arrow */
+  position: absolute;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(12, 0, 23, 0.665) 100%);
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Style the options */
+.categoryContainer select option {
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(12, 0, 23, 0.665) 100%);
+  color:#ffaf1b;
+  font-family: abeatbyKai;
+}
+
+/* 
 .categoryLinks {
   font-family: abeatbyKai;
   margin-left: 10px;
@@ -15,6 +47,7 @@
   transition: transform 0.3s ease-in-out;
   color: #ffaf1b;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .categoryLinks:hover,
@@ -22,7 +55,7 @@
   text-decoration: none;
   color: #ffaf1b;
   transform: scale(1.1); 
-}
+} */
 
 .searchBarBox {
   display: flex;
