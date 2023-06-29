@@ -11,11 +11,12 @@
   }
 
   .contentContainer {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 10px;
+    margin: 15px;
   }
 
   .eventButtonWrapper {
@@ -41,7 +42,9 @@
   .mapContainer {
     flex: 1;
     height: 500px;
+    max-width: 75vh;
     margin-top: 60px;
+    margin-left: 50px;
     padding: 10px;
     box-shadow: rgba(255, 255, 255, 0.16) 1px 1px 10px;
     border-radius: 8px;
@@ -49,8 +52,8 @@
   }
 
   .leaflet-container {
-    max-height: 100vh;
-    max-width: 100vh;
+    max-height: 75vh;
+    max-width: 75vh;
   }
 
   .eventCard {

@@ -111,15 +111,15 @@ function EventsContainer() {
         </form>
         <div className="categoryContainer">
   <select value={selectedCategory} onChange={(e) => handleCategoryClick(e.target.value)}>
-    <option value="">All</option>
-    <option value="Music">Music</option>
+    <option value="">all</option>
+    <option value="Music">music</option>
     <option value="DJ">DJs</option>
-    <option value="Photography">Photography</option>
-    <option value="Fashion & Textiles">Fashion</option>
-    <option value="Theater">Theater</option>
-    <option value="Visual Arts">Visual Arts</option>
-    <option value="Film">Film</option>
-    <option value="Comedy">Comedy</option>
+    <option value="Photography">photography</option>
+    <option value="Fashion & Textiles">fashion</option>
+    <option value="Theater">theater</option>
+    <option value="Visual Arts">visual arts</option>
+    <option value="Film">film</option>
+    <option value="Comedy">comedy</option>
   </select>
 </div>
       </div>
