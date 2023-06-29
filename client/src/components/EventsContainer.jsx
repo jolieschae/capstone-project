@@ -105,7 +105,7 @@ function EventsContainer() {
         <form className="searchContainer">
           <div className="searchOuterCell">
             <div className="td">
-              <input type="text" placeholder="Search events" onChange={handleSearch} />
+              <input type="text" placeholder="explore events..." onChange={handleSearch} />
             </div>
           </div>
         </form>
