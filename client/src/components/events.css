@@ -16,7 +16,8 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 10px;
-    margin: 15px;
+    margin: 50px;
+    margin-top: 10px;
   }
 
   .eventButtonWrapper {
@@ -45,7 +46,7 @@
     max-width: 75vh;
     margin-top: 60px;
     margin-left: 50px;
-    padding: 10px;
+    padding: 20px;
     box-shadow: rgba(255, 255, 255, 0.16) 1px 1px 10px;
     border-radius: 8px;
     background-color: rgb(31, 31, 31);

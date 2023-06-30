@@ -8,21 +8,20 @@
 }
 
 .categoryContainer select {
-  appearance: none; /* Remove default styling */
-  padding: 4px 8px; /* Adjust padding as needed */
-  font-size: 16px; /* Adjust font size as needed */
-  border: 1px solid #a89ec98e; /* Add border style */
+  appearance: none;
+  padding: 4px 8px;
+  font-size: 16px; 
+  border: 1px solid #a89ec98e;
   background: linear-gradient(0deg, #88888855, 0%, rgba(12, 0, 23, 0.665) 100%);
   box-shadow: 0 7px 20px 5px #00000088;
   border-radius: 0.7rem;
   backdrop-filter: blur(7px);
   color:#ffaf1b;
-  cursor: pointer; /* Add cursor style */
+  cursor: pointer; 
 }
 
-/* Style the arrow icon */
 .categoryContainer select::after {
-  content: "\25BE"; /* Unicode for down arrow */
+  content: "\25BE"; 
   position: absolute;
   background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(12, 0, 23, 0.665) 100%);
   top: 50%;
@@ -31,7 +30,6 @@
   pointer-events: none;
 }
 
-/* Style the options */
 .categoryContainer select option {
   background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(12, 0, 23, 0.665) 100%);
   color:#ffaf1b;
@@ -68,7 +66,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .search {

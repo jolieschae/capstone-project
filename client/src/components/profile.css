@@ -1,0 +1,258 @@
+.profileWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* width: 100vh; */
+    margin-top: 350px;
+  }
+
+.profileContainer {
+    font-family: abeatbyKai;
+    color:#fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(31, 31, 31, 0);
+    padding-bottom: 1.5rem;
+    width: 600px;
+  }
+
+  .profileSection {
+    width: 100%;
+    border-radius: 0.5rem;
+    background: linear-gradient(to right, rgb(127, 0, 0), #574a828e, #000,#ffaf1b);
+  }
+  
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profileCard {
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+    padding: 1rem;
+    background: #6c757d;
+    margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    /* height: 1000px; */
+    word-wrap: break-word;
+    background-color:  rgb(31, 31, 31);
+    background-clip: border-box;
+  }
+  
+  .profileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    height: 150px;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .profileImageContainer {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+  }
+  
+  .profileImage {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 5px solid rgb(31, 31, 31);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.393);
+    z-index: 2;
+  }
+  
+  .editProfileButtonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .editProfileButton {
+    z-index: 1;
+    --color: #ffaf1b;
+    --color2: rgb(30, 24, 10);
+    padding: 0.5em 1em;
+    background-color: black;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 10px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+  }
+
+  .editProfileButton::after, .editProfileButton::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+   }
+   
+   .editProfileButton::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .editProfileButton:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .editProfileButton:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+   }
+   
+   .editProfileButton:hover {
+    color: var(--color2);
+   }
+   
+   .editProfileButton:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+   }
+  
+  .profileDetails {
+    margin-top: 25px;
+    color: #ffaf1b;
+    margin-left: 5rem;
+  }
+
+  .profileFullname {
+    color: #ffaf1b;
+    font-family: "Stretch Pro";
+    font-size: 15px;
+  }
+
+  .profileUsername{
+    color: #ffaf1b;
+    font-family: "Stretch Pro";
+    font-size: 15px;
+  }
+
+  .profileArtform {
+    color: #ffaf1b;
+    font-family: "abeatbyKai";
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .profileLocation {
+    color: #ffaf1b;
+    font-family: "abeatbyKai";
+    font-size: 10px;
+  }
+  
+  .profileStats {
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 0.5rem 0;
+    margin-top: 45px;
+    margin-left: 320px;
+  }
+  
+  .stat {
+    flex: 1;
+    padding: 0 1rem;
+    margin-top: 1px;
+    text-align: center;
+    margin-bottom: 10px;
+
+  }
+  
+  .statValue {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .statLabel {
+    margin: 0;
+    font-size: 0.6rem;
+  }
+  
+  .profileAbout {
+    background-color:  rgb(0, 0, 0);;
+    padding: 1rem;
+    margin-top: 100px;
+    box-shadow: rgba(255, 255, 255, 0.16) 1px 1px 10px;
+    border-radius: 8px;
+  }
+  
+  .bioTitle {
+    margin-top: -10px;
+    margin-bottom: 1rem;
+    font-family: "Stretch Pro";
+    color:#ffaf1b;
+  }
+  
+  .bioDetails {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+  }
+  
+  .profileEvents {
+    margin-bottom: 1rem;
+  }
+  
+  .recentEventsTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-family: "Stretch Pro";
+    color:#ffaf1b;
+  }
+  
+  .showAllLink {
+    text-decoration: none;
+    color: #6c757d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+  }
+  
+  .photosContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .photo {
+    width: 100%;
+  }
+  
+  .photoImage {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  
