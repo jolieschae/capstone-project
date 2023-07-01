@@ -53,7 +53,7 @@ function SignUpForm() {
         //   r.json().then((err) => setErrors(err.errors));
         // }
       });
-      navigate("/events")
+      navigate("/login")
   };
 
   const renderPrompt = () => {

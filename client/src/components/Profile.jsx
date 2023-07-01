@@ -53,7 +53,7 @@ function Profile() {
                   <p>Artist and web developer living in NYC.</p>
                 </div>
               </div>
-              <div className="profileEvents">
+              {/* <div className="profileEvents">
                 <div className="recentEventsTitle">
                   <p>RECENT POSTS</p>
                   <a href="#!" className="showAllLink">
@@ -128,7 +128,7 @@ function Profile() {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

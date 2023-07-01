@@ -86,8 +86,8 @@ class User(db.Model, SerializerMixin):
     #     backref=db.backref('following', lazy='dynamic'), lazy=True
     # )
 
-    # created_at = db.Column(db.DateTime, server_default=db.func.now())
-    # updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     @validates('username')
     def validate_username(self, key, username):

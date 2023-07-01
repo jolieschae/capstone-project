@@ -1,14 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import Cookies from 'js-cookie';
 
 export const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
   const [eventsData, setEventsData] = useState([]);
   const [currentUser, setCurrentUser] = useState();
-  const [sessionId, setSessionId] = useState(Cookies.get('sessionId') || '');
+  const [sessionId, setSessionId] = useState(localStorage.getItem('sessionId') || '');
 
   useEffect(() => {
     fetchEventsData();
@@ -16,9 +15,9 @@ const MyProvider = ({ children }) => {
 
   useEffect(() => {
     if (sessionId) {
-      Cookies.set('sessionId', sessionId, { expires: 7 }); // Set the session ID as a cookie that expires in 7 days
+      localStorage.setItem('sessionId', sessionId);
     } else {
-      Cookies.remove('sessionId');
+      localStorage.removeItem('sessionId');
     }
   }, [sessionId]);
 

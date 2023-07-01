@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import './authorization.css';
 
 function LoginForm() {
+
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { handleLogin } = useContext(MyContext);
+  
 
   function handleSubmit(e) {
     e.preventDefault();

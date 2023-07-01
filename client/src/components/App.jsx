@@ -8,6 +8,8 @@ import SignUpForm from "./SignUpForm";
 import Profile from "./Profile";
 import Events from "./Events";
 import EventMap from "./EventMap";
+import Gigs from "./Gigs"
+import Community from "./Community"
 import Error from "./Error";
 import './app.css'
 
@@ -24,11 +26,13 @@ function App() {
       <MyProvider>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/register' element={<SignUpForm />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<SignUpForm />} />
       <Route path='/profile' element={<Profile />} /> 
       <Route path='/events' element={<Events />} />
       <Route path='/eventmap' element={<EventMap />} />
+      <Route path='/collab' element={<Gigs />} />
+      <Route path='/community' element={<Community />} />
       <Route path='*' element={<Error />} />
       </Routes>
       </MyProvider>
