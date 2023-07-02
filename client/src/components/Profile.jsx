@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import { MyContext } from './MyProvider';
 import './profile.css';
 import './events.css';
-import './statusCard.css';
+import './profileCards.css';
 import StatusCard from './StatusCard';
+import GigHistoryCard from './GigHistoryCard';
 
 function Profile() {
   const { currentUser } = useContext(MyContext);
@@ -81,9 +82,30 @@ function Profile() {
           <div className="profileStatusSection">
             <div className="profileInfo">
               <div className="profileStatusCard">
+              <div className="profileStatuses">
+                  <div className="statusTitle">
+                    <p>CHATS</p>
+                  </div>
+                  </div>
                   <div className="statusCardContainer">
                     {currentStatuses.map((status) => (
                       <StatusCard key={status.id} status={status} />
+                    ))}
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div className="profileGigSection">
+            <div className="profileInfo">
+              <div className="profileGigCard">
+              <div className="profileCollabs">
+                  <div className="collabsTitle">
+                    <p>COLLABS</p>
+                  </div>
+                  </div>
+                  <div className="gigHistoryCardContainer">
+                    {user.gighistory.map((gig) => (
+                      <GigHistoryCard key={gig.id} gig={gig} />
                     ))}
                   </div>
               </div>

@@ -383,7 +383,63 @@
                   "timePosted": "03:40 PM",
                   "message": "you're looking at a Flatiron School fresh grad... i skipped the ceremony so i have no pictures to offer, but you're all obligated to congratulate me accordingly. hit me up for all your web development needs"
                 }
-              ]
+              ],
+            "gighistory" : [
+              {
+                "id": 1,
+                "host": "zummy",
+                "username": "jinxley",
+                "role": "Painter",
+                "date": "2023-06-28",
+                "active": false,
+                "description": "Painted a portrait for a dancer."
+              },
+              {
+                "id": 2,
+                "host": "laams",
+                "username": "jinxley",
+                "role": "Painter",
+                "date": "2023-06-29",
+                "active": false,
+                "description": "Created a landscape painting for a gallery exhibition."
+              },
+              {
+                "id": 3,
+                "host": "jonryanisdead",
+                "username": "jinxley",
+                "role": "Production Assistant",
+                "date": "2023-06-30",
+                "active": false,
+                "description": "Production assistant on set of 'Fulltime' movie."
+              },
+              {
+                "id": 4,
+                "host": "keithselvin",
+                "username": "jinxley",
+                "role": "Web Developer",
+                "date": "2023-07-01",
+                "active": true,
+                "description": "Developed a responsive website for a small business."
+              },
+              {
+                "id": 5,
+                "host": "tomioo",
+                "username": "jinxley",
+                "role": "Production Assistant",
+                "date": "2023-07-02",
+                "active": true,
+                "description": "Assisted with production coordination on a commercial shoot."
+              },
+              {
+                "id": 6,
+                "host": "mattblak",
+                "username": "jinxley",
+                "role": "Sculpter",
+                "date": "2023-07-03",
+                "active": true,
+                "description": "Created a sculpture for an art installation at a music/art event."
+              }
+            ]                      
         },
 
         {
