@@ -11,7 +11,51 @@
             "location": "New York City",
             "gender": "He/Him",
             "art_form": "Musician",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "kitchenboys",
+                  "datePosted": "2023-06-15",
+                  "timePosted": "11:45 AM",
+                  "message": "Cookin' up beats in the studio like master chefs! 🎧🔥 Can't wait to drop some fire tracks at our next performance at Pianos in the Lower East Side! 🎵🔥 #HipHopMemeRap #StudioVibes"
+                },
+                {
+                  "id": 2,
+                  "username": "kitchenboys",
+                  "datePosted": "2023-06-18",
+                  "timePosted": "06:30 PM",
+                  "message": "When we hit the stage at Pianos, it's gonna be hotter than a spicy sriracha flow! 🌶️🎤 Get ready for a lit night of hip-hop and meme magic! 💥🔥 #PianosNYC #MemeRapGroup"
+                },
+                {
+                  "id": 3,
+                  "username": "kitchenboys",
+                  "datePosted": "2023-06-22",
+                  "timePosted": "10:15 AM",
+                  "message": "Crypto on our minds! 🚀💰 While we're spittin' bars, we're also investin' in those sweet digital coins. Gonna make sure our pockets stay phat like our beats! 💸🎶 #CryptoInvesting #MakingMoneyMoves"
+                },
+                {
+                  "id": 4,
+                  "username": "kitchenboys",
+                  "datePosted": "2023-06-24",
+                  "timePosted": "03:20 PM",
+                  "message": "When we're not cookin' up tracks or counting stacks, we're leveling up in the virtual world! 🎮💥 Started playing this new video game, and we're addicted! Can't get enough of those epic boss battles! 🎮🎯 #GamingAddicts #VirtualWarriors"
+                },
+                {
+                  "id": 5,
+                  "username": "kitchenboys",
+                  "datePosted": "2023-06-28",
+                  "timePosted": "09:50 AM",
+                  "message": "Woke up early to grind and rhyme! The energy is high, the creativity is flowin', and we're ready to conquer the music scene like a lyrical storm! 🌪️🎵 #RiseAndGrind #LyricalStorm"
+                },
+                {
+                  "id": 6,
+                  "username": "kitchenboys",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "08:05 PM",
+                  "message": "In the kitchen, cooking up mad beats! Stirring up that music magic like a secret recipe. Can't wait to serve it hot at our next gig! 🔥🍳🎶 #MusicMagic #LivePerformance"
+                }
+              ]
         },
 
         {
@@ -24,7 +68,51 @@
             "location": "New York City",
             "gender": "She/Her",
             "art_form": "Singer",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "montanajanel",
+                  "datePosted": "2023-06-14",
+                  "timePosted": "02:30 PM",
+                  "message": "Lost in the melodies today, creating some magic in the studio! 🎶💫 Can't wait to share the new music I've been working on with all of you! Stay tuned for some vibes that'll make your heart dance! 💃❤️ #MusicCreation #NewSongsComing"
+                },
+                {
+                  "id": 2,
+                  "username": "montanajanel",
+                  "datePosted": "2023-06-17",
+                  "timePosted": "08:45 AM",
+                  "message": "Been diving deep into astrology lately, exploring the cosmic wonders and finding inspiration in the stars ✨🔮 It's fascinating how the universe aligns with our journeys. What's your zodiac sign? Let's dive into the celestial vibes together! 🌌💫 #AstrologyLover #CosmicJourney"
+                },
+                {
+                  "id": 3,
+                  "username": "montanajanel",
+                  "datePosted": "2023-06-20",
+                  "timePosted": "05:15 PM",
+                  "message": "Discovering new songs that hit me right in the feels! 🎧❤️ The power of music is incredible—it can transport you to different emotions and memories. Share your current favorite songs with me! Let's create a playlist of feels together! 🎶😍 #MusicSoulmate #EmotionalJourney"
+                },
+                {
+                  "id": 4,
+                  "username": "montanajanel",
+                  "datePosted": "2023-06-25",
+                  "timePosted": "11:10 AM",
+                  "message": "Throwback to my last trip to Hawaii! 🌺🏝️ The breathtaking landscapes, the sound of crashing waves, and the tropical vibes still linger in my heart. Can't wait to go back and embrace the aloha spirit again! 🤙😎 #HawaiiVibes #TropicalParadise"
+                },
+                {
+                  "id": 5,
+                  "username": "montanajanel",
+                  "datePosted": "2023-06-28",
+                  "timePosted": "03:55 PM",
+                  "message": "When the music takes over, it's like a sweet symphony flowing through my veins! 🎵💖 Each note tells a story, and I'm just the vessel bringing it to life. Grateful to be on this musical journey with all of you! Let's create moments that resonate forever! 🎶🙌 #MusicalJourney #HeartfeltMelodies"
+                },
+                {
+                  "id": 6,
+                  "username": "montanajanel",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "09:20 PM",
+                  "message": "Music, sunshine, and tropical vibes! Hawaii left a piece of its magic in my soul. 🌴🎵 The melodies I'm working on now are heavily inspired by my time there. Get ready to sway to some island-infused beats! 🏄‍♀️🎶 #HawaiianInspiration #MusicMagic"
+                }
+              ]
         },
 
         {
@@ -37,7 +125,51 @@
             "location": "New York City",
             "gender": "He/Him",
             "art_form": "Producer",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                  {
+                    "id": 1,
+                    "username": "sleepypharaoh",
+                    "datePosted": "2023-06-14",
+                    "timePosted": "10:00 AM",
+                    "message": "Locked in the studio, crafting some fire beats that'll make your speakers shake! 🔥🎧 The hustle never stops. Music is my sanctuary, and I'm here to create sonic magic that'll leave you craving for more! 🎵💯 #BeatMaker #StudioVibes"
+                  },
+                  {
+                    "id": 2,
+                    "username": "sleepypharaoh",
+                    "datePosted": "2023-06-17",
+                    "timePosted": "02:30 PM",
+                    "message": "When I'm not making beats, I'm diving into programming, unraveling the mysteries of code! 💻🔢 There's something captivating about the intersection of music and technology. Who else loves exploring the harmony between music and code? 🎶💻 #MusicAndCode #TechEnthusiast"
+                  },
+                  {
+                    "id": 3,
+                    "username": "sleepypharaoh",
+                    "datePosted": "2023-06-20",
+                    "timePosted": "07:15 PM",
+                    "message": "Music is my meditation, but a little bit of herbal inspiration never hurts! 🌿💨 The sweet smell of creativity in the air. Light it up and let the rhythm guide your soul! 🎶🌬️ #WeedAndBeats #CreativeFlow"
+                  },
+                  {
+                    "id": 4,
+                    "username": "sleepypharaoh",
+                    "datePosted": "2023-06-23",
+                    "timePosted": "11:30 AM",
+                    "message": "Preparing for the next MC Producer Tournament at Secret Pour in Bushwick, Brooklyn! 🎤🥁 The stage is set, the competition is fierce. Time to showcase my skills and represent for all the beatmakers out there! Let's make the crowd go wild! 🎵🔥 #ProducerTournament #BushwickVibes"
+                  },
+                  {
+                    "id": 5,
+                    "username": "sleepypharaoh",
+                    "datePosted": "2023-06-26",
+                    "timePosted": "04:45 PM",
+                    "message": "Beats and basslines running through my veins, while I sip on coffee and study programming languages. ☕💻 There's an undeniable connection between music and coding—both require rhythm, precision, and a touch of madness! 🎧💻 #BeatsAndCode #ProgrammingJourney"
+                  },
+                  {
+                    "id": 6,
+                    "username": "sleepypharaoh",
+                    "datePosted": "2023-06-30",
+                    "timePosted": "09:00 PM",
+                    "message": "Late-night sessions in the lab, surrounded by keyboards and MPCs. The tournament at Secret Pour is right around the corner, and I'm sharpening my skills like a pharaoh's blade! 🔪🔥 Get ready for an unforgettable night of beats and vibes! 🎹💯 #TournamentPrep #BeatMaster"
+                  }
+                ]
         },
 
         {
@@ -50,7 +182,51 @@
             "location": "New York City",
             "gender": "He/Him",
             "art_form": "DJ",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "orson",
+                  "datePosted": "2023-06-14",
+                  "timePosted": "08:00 PM",
+                  "message": "NYC nights are my playground! 🌃🎧 Can't wait to spin some sick beats and set the dance floor on fire at Le Bain this weekend! Get ready for a night of unforgettable music and vibes! 🎶🔥 #NYCNightlife #LeBain"
+                },
+                {
+                  "id": 2,
+                  "username": "orson",
+                  "datePosted": "2023-06-17",
+                  "timePosted": "10:30 PM",
+                  "message": "Spring Place, get ready to lose yourselves in the rhythm! 🕺💃 I'll be dropping beats that'll make your hearts race and your bodies move. It's gonna be an epic night of music and memories! 🎶❤️ #SpringPlaceNYC #DJSet"
+                },
+                {
+                  "id": 3,
+                  "username": "orson",
+                  "datePosted": "2023-06-21",
+                  "timePosted": "09:15 PM",
+                  "message": "Palace, the night belongs to us! 👑✨ Brace yourselves for a DJ set that'll transport you to a world of musical ecstasy. Let's dance like there's no tomorrow and make this night one for the books! 🎵🔥 #PalaceNYC #NightlifeKingdom"
+                },
+                {
+                  "id": 4,
+                  "username": "orson",
+                  "datePosted": "2023-06-25",
+                  "timePosted": "11:45 PM",
+                  "message": "Soho Grand Hotel, get ready for a night of pure musical bliss! 🎶💫 I'll be curating a sonic journey that'll leave you craving for more. Let's create memories on the dance floor that'll last a lifetime! 🕺💃 #SohoGrandHotel #MusicalBliss"
+                },
+                {
+                  "id": 5,
+                  "username": "orson",
+                  "datePosted": "2023-06-28",
+                  "timePosted": "06:30 PM",
+                  "message": "NYC nightlife is where dreams come alive! ✨🌃 This weekend, I'll be at Le Bain, bringing the beats that'll make you lose yourselves in the music. Get ready to dance until the sun comes up! 🎧🌅 #NYCNightlife #DanceTillDawn"
+                },
+                {
+                  "id": 6,
+                  "username": "orson",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "07:45 PM",
+                  "message": "Tonight, it's all about Soho Grand Hotel! 🎶🌟 Let's ignite the night with electrifying beats and create a magical atmosphere together. Get ready to experience the ultimate fusion of music and energy! 🎧⚡️ #SohoGrandHotel #MagicalNight"
+                }
+              ]
         },
 
         {
@@ -63,7 +239,44 @@
             "location": "New York City",
             "gender": "He/Him",
             "art_form": "Filmmaker",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "jonryanisdead",
+                  "datePosted": "2023-06-14",
+                  "timePosted": "09:00 AM",
+                  "message": "Just finished a brainstorming session with my team, and guess what? We found a way to include a fart joke in the opening scene of my new film. 🎬😂 Gotta keep it light-hearted and make people laugh! #FilmMaking #FartJokes"
+                },
+                {
+                  "id": 2,
+                  "username": "jonryanisdead",
+                  "datePosted": "2023-06-18",
+                  "timePosted": "06:30 PM",
+                  "message": "Had an amazing time at the screening of my latest short film, 'Fulltime.' 🎥🎞️ It's a story close to my heart, and I'm grateful for the incredible cast and crew who brought it to life. Keep an eye out for this one—it's gonna make waves! #FilmScreening #Fulltime"
+                },
+                {
+                  "id": 3,
+                  "username": "jonryanisdead",
+                  "datePosted": "2023-06-22",
+                  "timePosted": "03:15 PM",
+                  "message": "Exciting news, everyone! I'm thrilled to announce my next project, 'Gut Punch'! 🎞️💥 It's a rollercoaster of emotions, exploring the raw and vulnerable side of human relationships. Can't wait to dive into this journey with an incredible cast and crew! #NewProject #GutPunch"
+                },
+                {
+                  "id": 4,
+                  "username": "jonryanisdead",
+                  "datePosted": "2023-06-26",
+                  "timePosted": "11:45 AM",
+                  "message": "Living in New York City during the summer holidays is like a ghost town. 🏙️☀️ I don't get it—why would people leave this vibrant city when it's at its best? Maybe New Yorkers have to suffer through winter to earn their summer here. What do you think? 🤔 #NYCLife #SummerHolidays"
+                },
+                {
+                  "id": 5,
+                  "username": "jonryanisdead",
+                  "datePosted": "2023-06-29",
+                  "timePosted": "08:00 PM",
+                  "message": "HBOMax is now MAX. Peacock... you're next. 🎬🔥 Streaming platforms are going through some rebranding! It's an exciting time for content creators and viewers alike. Buckle up for the changing landscape of the streaming world! 📺💥 #StreamingPlatforms #ContentRevolution"
+                }
+              ]
         },
 
         {
@@ -76,25 +289,49 @@
             "location": "New York City",
             "gender": "She/Her",
             "art_form": "Comedian",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "savannahsnow",
+                  "datePosted": "2023-06-15",
+                  "timePosted": "10:30 AM",
+                  "message": "🎭 Exciting news, everyone! I'm headlining my latest comedy show at The Laugh Lounge this Friday! Get ready for an evening of non-stop laughter and unpredictable improvisation. Grab your tickets now and join me for a night you won't forget! #ComedyShow #LaughLounge"
+                },
+                {
+                  "id": 2,
+                  "username": "savannahsnow",
+                  "datePosted": "2023-06-20",
+                  "timePosted": "07:15 PM",
+                  "message": "🎤 It's time to tickle your funny bone! Catch me at the Comedy Cellar this Saturday, where I'll be showcasing my latest material. From hilarious anecdotes to witty observations, this show guarantees a night of pure comedy gold. Don't miss out! #StandUpComedy #ComedyCellar"
+                },
+                {
+                  "id": 3,
+                  "username": "savannahsnow",
+                  "datePosted": "2023-06-25",
+                  "timePosted": "02:45 PM",
+                  "message": "🤣 Prepare for an evening of side-splitting laughter! I'll be performing at The Improv Spot next week, bringing you a mix of stand-up comedy and improvised madness. Come witness the magic of spontaneous comedy unfold right before your eyes. See you there! #ImprovShow #TheImprovSpot"
+                },
+                {
+                  "id": 4,
+                  "username": "savannahsnow",
+                  "datePosted": "2023-06-28",
+                  "timePosted": "11:00 AM",
+                  "message": "🎭 Need a midweek laughter boost? Join me at The Comedy Hub this Wednesday for an uproarious night of comedy! From clever one-liners to expertly crafted routines, this show will leave your cheeks hurting from all the laughter. Get your tickets now! #ComedyNight #TheComedyHub"
+                },
+                {
+                  "id": 5,
+                  "username": "savannahsnow",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "06:30 PM",
+                  "message": "🎤 Attention comedy enthusiasts! I'll be making a special guest appearance at the Hilarious House this Sunday. Get ready for a memorable evening filled with hilarious punchlines and unexpected comedic twists. Don't miss out on this unforgettable show! #ComedyGuest #HilariousHouse"
+                }
+              ]
         },
 
         {
             "id": 7,
-            "username": "",
-            "email": "",
-            "birthday": "03/28/95",
-            "first_name": "",
-            "last_name": "",
-            "location": "New York City",
-            "gender": "He/Him",
-            "art_form": "",
-            "avatar": ""
-        },
-
-        {
-            "id": 8,
-            "username": "jolieschae",
+            "username": "jinxley",
             "email": "jolieschae@gmail.com",
             "birthday": "07/14/97",
             "first_name": "Jolie",
@@ -102,11 +339,55 @@
             "location": "New York City",
             "gender": "She/Her",
             "art_form": "Painter",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "jinxley",
+                  "datePosted": "2023-06-13",
+                  "timePosted": "08:30 AM",
+                  "message": "is anyone going to the fulltime screening??"
+                },
+                {
+                  "id": 2,
+                  "username": "jinxley",
+                  "datePosted": "2023-06-17",
+                  "timePosted": "02:15 PM",
+                  "message": "just dropped a new blog post. check it out!"
+                },
+                {
+                  "id": 3,
+                  "username": "jinxley",
+                  "datePosted": "2023-06-20",
+                  "timePosted": "09:45 AM",
+                  "message": "working on a new piece. check out my latest post for some bts"
+                },
+                {
+                  "id": 4,
+                  "username": "jinxley",
+                  "datePosted": "2023-06-23",
+                  "timePosted": "06:55 PM",
+                  "message": "new memes just dropped"
+                },
+                {
+                  "id": 5,
+                  "username": "jinxley",
+                  "datePosted": "2023-06-27",
+                  "timePosted": "11:20 AM",
+                  "message": "i'll be in miami next week! who's around? what's going on?! looking for cool art exhibits or fashion pop-ups"
+                },
+                {
+                  "id": 6,
+                  "username": "jinxley",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "03:40 PM",
+                  "message": "you're looking at a Flatiron School fresh grad... i skipped the ceremony so i have no pictures to offer, but you're all obligated to congratulate me accordingly. hit me up for all your web development needs"
+                }
+              ]
         },
 
         {
-            "id": 9,
+            "id": 8,
             "username": "riri",
             "email": "sarina@gmail.com",
             "birthday": "06/03/98",
@@ -115,11 +396,48 @@
             "location": "New York City",
             "gender": "She/Her",
             "art_form": "Fashion Designer",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "riri",
+                  "datePosted": "2023-06-15",
+                  "timePosted": "11:00 AM",
+                  "message": "👗 Hey, fashionistas! Join me on the third floor of LAAMS, the ultimate destination for thrift, art, and fashion. Discover unique designer pieces handpicked by yours truly. From vintage treasures to contemporary styles, we've got something for every fashion lover. Come and elevate your style game! #LAAMS #FashionFinds"
+                },
+                {
+                  "id": 2,
+                  "username": "riri",
+                  "datePosted": "2023-06-20",
+                  "timePosted": "02:30 PM",
+                  "message": "🧵 Exciting news, fashion lovers! I just dropped a brand new collection of handmade garments at LAAMS. Each piece is meticulously crafted with love and passion, showcasing my unique style. Visit the third floor to explore these one-of-a-kind creations and embrace your individuality. #HandmadeFashion #RiriDesigns"
+                },
+                {
+                  "id": 3,
+                  "username": "riri",
+                  "datePosted": "2023-06-25",
+                  "timePosted": "09:45 AM",
+                  "message": "🛍️ Looking for designer steals? Head over to LAAMS and explore our curated selection of high-end consignment pieces. From luxury brands to coveted labels, you'll find your dream wardrobe essentials at unbelievable prices. Don't miss out on these fashion gems! #DesignerConsignment #LAAMS"
+                },
+                {
+                  "id": 4,
+                  "username": "riri",
+                  "datePosted": "2023-06-28",
+                  "timePosted": "04:15 PM",
+                  "message": "🌟 Attention fashion enthusiasts! I'll be hosting a styling workshop at LAAMS next week. Join me on the third floor and learn the art of creating unique looks by mixing vintage finds with modern pieces. Discover your own signature style and unleash your fashion creativity. See you there! #StylingWorkshop #FashionCreativity"
+                },
+                {
+                  "id": 5,
+                  "username": "riri",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "12:00 PM",
+                  "message": "👚 Calling all fashion mavens! Step into LAAMS and explore the endless possibilities of sustainable fashion. I'm proud to introduce my latest upcycled collection, where old garments are transformed into stunning new pieces. Join the fashion revolution and make a style statement that's good for the planet. #SustainableFashion #UpcycledCollection"
+                }
+              ]
         },
 
         {
-            "id": 10,
+            "id": 9,
             "username": "teesndsneaks",
             "email": "deandre@gmail.com",
             "birthday": "09/19/95",
@@ -128,11 +446,48 @@
             "location": "New York City",
             "gender": "He/Him",
             "art_form": "Photographer",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "teesndsneaks",
+                  "datePosted": "2023-06-16",
+                  "timePosted": "10:30 AM",
+                  "message": "📸 Capturing the beauty of life through my lens. Nothing beats the feeling of immersing myself in photography. From stunning landscapes to captivating portraits, I strive to create art that speaks volumes. Stay tuned for some mind-blowing shots coming your way! #PhotographyPassion #ArtisticEye"
+                },
+                {
+                  "id": 2,
+                  "username": "teesndsneaks",
+                  "datePosted": "2023-06-19",
+                  "timePosted": "03:45 PM",
+                  "message": "🌿 Kicking back, relaxing, and enjoying the weekend vibes. Time to light up and appreciate the little things in life. Let the sweet aroma of herbal inspiration fuel your creativity and passion. Stay lifted, my friends! #WeedCulture #InspiredByNature"
+                },
+                {
+                  "id": 3,
+                  "username": "teesndsneaks",
+                  "datePosted": "2023-06-22",
+                  "timePosted": "09:15 AM",
+                  "message": "👟 Sneakerheads, rejoice! Stepping up my shoe game with some fresh kicks. The perfect blend of style and comfort, these sneakers are an absolute game-changer. Lace up and strut your way through life with confidence. Stay tuned for more sneaker updates! #SneakerObsession #KickGameStrong"
+                },
+                {
+                  "id": 4,
+                  "username": "teesndsneaks",
+                  "datePosted": "2023-06-26",
+                  "timePosted": "05:30 PM",
+                  "message": "🎨 Art is my escape, my sanctuary. It allows me to express my deepest emotions and thoughts without saying a word. Join me on this artistic journey as I explore different mediums and push the boundaries of creativity. Let's inspire each other and make the world a more beautiful place. #ArtisticExpression #CreativeSoul"
+                },
+                {
+                  "id": 5,
+                  "username": "teesndsneaks",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "01:00 PM",
+                  "message": "✈️ Just got back from an incredible trip to Sweden. The breathtaking landscapes, vibrant culture, and friendly people made it an unforgettable experience. I captured some amazing shots that I can't wait to share with you all. Stay tuned for the visual journey of my Swedish adventure! #TravelPhotography #SwedishExploration"
+                }
+              ]
         },
 
         {
-            "id": 11,
+            "id": 10,
             "username": "zummy",
             "email": "zummy@gmail.com",
             "birthday": "04/05/96",
@@ -141,12 +496,45 @@
             "location": "New York City",
             "gender": "He/Him",
             "art_form": "Dancer",
-            "avatar": ""
+            "avatar": "",
+            "statuses": [
+                {
+                  "id": 1,
+                  "username": "zummy",
+                  "datePosted": "2023-06-17",
+                  "timePosted": "11:30 AM",
+                  "message": "🕺 Rehearsals are in full swing! Dancing my heart out and perfecting every move. The stage is my second home, and I can't wait to bring the magic to life. Stay tuned for updates on my latest dance performances and sneak peeks behind the scenes. Let's dance like nobody's watching! #DancerLife #StageMagic"
+                },
+                {
+                  "id": 2,
+                  "username": "zummy",
+                  "datePosted": "2023-06-20",
+                  "timePosted": "04:00 PM",
+                  "message": "🎭 Audition season is here, and I'm ready to showcase my talent and passion. The thrill of stepping into the audition room, giving my all, and leaving it on the dance floor is what keeps me going. Wish me luck as I chase my dreams and embrace every opportunity that comes my way! #AuditionLife #ChasingDreams"
+                },
+                {
+                  "id": 3,
+                  "username": "zummy",
+                  "datePosted": "2023-06-24",
+                  "timePosted": "10:15 AM",
+                  "message": "👠 Just wrapped up an incredible performance in Cinderella on Broadway. The stage was set, the costumes were mesmerizing, and the audience's applause was music to my ears. It's moments like these that remind me why I fell in love with the magic of theater. Grateful for the opportunity to bring joy to people's lives. #BroadwayMagic #TheaterLove"
+                },
+                {
+                  "id": 4,
+                  "username": "zummy",
+                  "datePosted": "2023-06-28",
+                  "timePosted": "06:30 PM",
+                  "message": "💃 Dancing is not just movement; it's storytelling, emotion, and expression. I'm constantly pushing myself to explore new dance styles, challenge my limits, and tell captivating stories through movement. Join me on this artistic journey as we break boundaries and inspire the world with the power of dance. #DancePassion #ArtisticExpression"
+                },
+                {
+                  "id": 5,
+                  "username": "zummy",
+                  "datePosted": "2023-06-30",
+                  "timePosted": "02:30 PM",
+                  "message": "🎬 Lights, camera, action! Aspiring actor, dancer, and theater performer here, ready to take on the world of entertainment. From auditions to castings, I'm constantly honing my skills and seeking new opportunities to bring stories to life. Join me on this exciting journey as I chase my dreams and embrace the spotlight. #AspiringActor #PerformingArts"
+                }
+              ]
         }
-
-
-
-
 
     ]
 
