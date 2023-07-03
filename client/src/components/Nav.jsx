@@ -10,6 +10,7 @@ function Nav() {
         <div className="links">
           <Link to="/" className="link">home</Link>
           <Link to="/feed" className="link">feed</Link>
+          <Link to="/post" className="link">post</Link>
           <Link to="/events" className="link">explore events</Link> 
           <Link to="/collab" className="link">collab</Link> 
           <Link to="/community" className="link">community</Link> 

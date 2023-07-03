@@ -50,15 +50,17 @@
 
   .statusEditButton {
     display: flex;
+    margin-left: 105px;
     align-items: right;
     }
 
   .statusEditButton button {
     padding: 4px 8px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.483);
     border-radius: 6px;
     border: none;
-    color: #ffaf1b;
+    color: #ffaf1b7f;
+    font-size: 10px;
     cursor: pointer;
   }
   

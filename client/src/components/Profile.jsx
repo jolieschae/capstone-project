@@ -10,21 +10,34 @@ function Profile() {
   const { currentUser } = useContext(MyContext);
   const { usersData } = useContext(MyContext);
   console.log(currentUser);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentStatusPage, setCurrentStatusPage] = useState(1);
+  const [currentGigPage, setCurrentGigPage] = useState(1);
  const user = usersData.find((user) => user.username === 'jinxley');
  if (!user) {
     return <p>User not found.</p>;
   }
   
   const statusesPerPage = 4;
-  const indexOfLastStatus = currentPage * statusesPerPage;
+  const gigsPerPage = 4;
+
+
+  const indexOfLastStatus = currentStatusPage * statusesPerPage;
   const indexOfFirstStatus = indexOfLastStatus - statusesPerPage;
   const currentStatuses = user.statuses.slice(indexOfFirstStatus, indexOfLastStatus);
 
-  const totalPages = Math.ceil(user.statuses.length / statusesPerPage);
+  const indexOfLastGig = currentGigPage * gigsPerPage;
+  const indexOfFirstGig = indexOfLastGig - gigsPerPage;
+  const currentGigs = user.gighistory.slice(indexOfFirstGig, indexOfLastGig);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  const totalStatusPages = Math.ceil(user.statuses.length / statusesPerPage);
+  const totalGigPages = Math.ceil(user.gighistory.length / gigsPerPage);
+
+  const handleStatusPageChange = (pageNumber) => {
+    setCurrentStatusPage(pageNumber);
+  };
+
+  const handleGigPageChange = (pageNumber) => {
+    setCurrentGigPage(pageNumber);
   };
 
   return (
@@ -92,6 +105,24 @@ function Profile() {
                       <StatusCard key={status.id} status={status} />
                     ))}
                   </div>
+                  <div className="pagination">
+                {totalStatusPages > 1 && (
+                  <div className="paginationButtons">
+                    <button className="paginationButton"
+                      disabled={currentStatusPage === 1}
+                      onClick={() => handleStatusPageChange(currentStatusPage - 1)}
+                    >
+                      Prev
+                    </button>
+                    <button className="paginationButton"
+                      disabled={currentStatusPage === totalStatusPages}
+                      onClick={() => handleStatusPageChange(currentStatusPage + 1)}
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
+              </div>
               </div>
             </div>
           </div>
@@ -104,10 +135,28 @@ function Profile() {
                   </div>
                   </div>
                   <div className="gigHistoryCardContainer">
-                    {user.gighistory.map((gig) => (
-                      <GigHistoryCard key={gig.id} gig={gig} />
+                  {currentGigs.map((gig) => (
+                    <GigHistoryCard key={gig.id} gig={gig} />
                     ))}
+                </div>
+                <div className="pagination">
+                {totalGigPages > 1 && (
+                  <div className="paginationButtons">
+                    <button className="paginationButton"
+                      disabled={currentGigPage === 1}
+                      onClick={() => handleGigPageChange(currentGigPage - 1)}
+                    >
+                      Prev
+                    </button>
+                    <button className="paginationButton"
+                      disabled={currentGigPage === totalGigPages}
+                      onClick={() => handleGigPageChange(currentGigPage + 1)}
+                    >
+                      Next
+                    </button>
                   </div>
+                )}
+              </div>
               </div>
             </div>
           </div>
@@ -190,21 +239,6 @@ function Profile() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="pagination">
-        {totalPages > 1 && (
-          <ul>
-            {Array.from({ length: totalPages }, (_, index) => (
-              <li
-                key={index + 1}
-                className={currentPage === index + 1 ? 'active' : ''}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
     </div>
   );
