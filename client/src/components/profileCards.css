@@ -32,7 +32,7 @@
     border-radius: 10px;
     padding: 10px;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   .statusHeader {
@@ -115,7 +115,6 @@
     align-items: flex-start;
     border-radius: 8px;
     background-color: #6c757d;
-    margin: 0.01rem;
     min-width: 0;
     word-wrap: break-word;
     font-family: Azonix;
@@ -130,11 +129,11 @@
     -webkit-backdrop-filter: blur(7px);
     overflow: hidden;
     transition: 0.5s all;
-    width: 215px;
+    width: 210px;
     border-radius: 10px;
     padding: 15px;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   .gigHeader {
