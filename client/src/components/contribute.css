@@ -1,13 +1,43 @@
+.postTypeSelect {
+    padding-bottom: 1%;
+    background-color: rgba(255, 255, 255, 0.476);
+    border: none;
+    border-radius: 2px;
+    padding: 2px;
+    width: 162px;
+    color: rgba(0, 0, 0, 0.631);
+}
+
 .formWrapper {
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: abeatbyKai;
     justify-content: center;
     align-items: center;
     height: 600px;
     margin: 20px;
+    margin-top: 240px;
   }
 
-.gigFormContainer {
+  .gigFormWrapper {
+    display: flex;
+    font-family: abeatbyKai;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    margin: 20px;
+    margin-top: 245px;
+  }
+
+  .blogFormWrapper {
+    display: flex;
+    font-family: abeatbyKai;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    margin: 5px;
+  }
+
+.formContainer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -50,6 +80,8 @@
   font-family: "Stretch Pro";
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.582);
 }
+
+
 
 .rightContainer {
   width: 700px;
@@ -100,7 +132,7 @@
 }
 
 .thumbnail {
-    width: 270px;
+    width: 300px;
     flex-wrap: wrap;
     line-height: .01;
 }
@@ -123,31 +155,138 @@
 .postFormDisclaimer {
     font-size: 9px;
     margin-left: 95px;
+    color: rgba(182, 182, 182, 0.631);
 }
 
+.eventFormSelectCategory {
+    display: flex;
+    padding-bottom: 1%;
+    margin: 8px;
+    background-color: rgba(255, 255, 255, 0.476);
+    border: none;
+    border-radius: 2px;
+    padding: 2px;
+    width: 162px;
+    color: rgba(0, 0, 0, 0.631);
+}
+
+.formDescription {
+    display: column;
+}
+
+.eventFormDescriptionBox {
+    margin-top: 20px;
+    width: 500px;
+    height: 175px;
+    display: flex;
+    padding-bottom: 1%;
+    margin: 8px;
+    background-color: rgba(255, 255, 255, 0.476);
+    border: none;
+    border-radius: 2px;
+    padding: 6px;
+    color: black;
+}
+
+.gigFormDescriptionBox {
+    margin-top: 20px;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    padding-bottom: 1%;
+    margin: 8px;
+    background-color: rgba(255, 255, 255, 0.476);
+    border: none;
+    border-radius: 2px;
+    padding: 6px;
+    color: black;
+}
 
 .formRestrictions .radio-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: 10px;
+    font-family: abeatbyKai;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    padding: 6px;
+    color: rgba(182, 182, 182, 0.631);
+
 }
 
 footer {
-  align-items: center;
-  background: #fff;
-  display: grid;
-  padding: 5px 40px;
+    align-items: center;
+    display: grid;
+    padding: 5px 10px;
+    background: transparent;
+    background-clip: border-box;
 }
 
-footer button {
-  border: 1px solid rgba(0, 0, 0, .2);
-  height: 38px;
-  line-height: 38px;
-  width: 100px;
-  border-radius: 19px;
-  font-family: var(--font-family);
+.submit {
+  display: flex;
+  width: 800px;
+  margin: 10px;
+  padding: 1px;
+  border-radius: 0.5rem;
 }
+
+.postSubmitButton {
+    --color: #ffaf1b;
+    --color2: rgb(30, 24, 10);
+    padding: 0.5em 1em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+  }  
+
+  .postSubmitButton::after, .postSubmitButton::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+   }
+   
+   .postSubmitButton::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .postSubmitButton:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .postSubmitButton:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+   }
+   
+   .postSubmitButton:hover {
+    color: var(--color2);
+   }
+   
+   .postSubmitButton:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+   }
 
 footer #back {
   background: #fff;
@@ -171,7 +310,6 @@ footer #next:hover {
 
 
 .radio-container {
-  background: #fff;
   border: 1px solid var(--form-border-color);
   border-radius: 4px;
   display: inline-block;
@@ -189,7 +327,7 @@ footer #next:hover {
   padding: 0;
   text-align: center;
   transition: .2s all ease-in-out;
-  width: 80px;
+  width: 100px;
 }
 
 .radio-container input[type="radio"] {
@@ -197,6 +335,7 @@ footer #next:hover {
 }
 
 .radio-container input[type="radio"]:checked + label {
-  background: #807182;
+  background: #ffaf1b;
+  color: black;
   border: 1px solid var(--form-border-color);
 }
