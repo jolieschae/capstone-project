@@ -1,3 +1,11 @@
+.postTypeHeader {
+    margin: 20px;
+    color: #ffaf1b;
+    font-size: 20px;
+    font-family: "Stretch Pro";
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.582);
+}
+
 .postTypeSelect {
     padding-bottom: 1%;
     background-color: rgba(255, 255, 255, 0.476);
@@ -15,7 +23,7 @@
     align-items: center;
     height: 600px;
     margin: 20px;
-    margin-top: 240px;
+    margin-top: 251px;
   }
 
   .gigFormWrapper {
@@ -25,7 +33,7 @@
     align-items: center;
     height: 600px;
     margin: 20px;
-    margin-top: 245px;
+    margin-top: 259px;
   }
 
   .blogFormWrapper {

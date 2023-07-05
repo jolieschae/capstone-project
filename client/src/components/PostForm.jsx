@@ -447,7 +447,7 @@ function PostForm() {
 
   return (
     <div>
-      <h1>Post Form</h1>
+      <h1 className="postTypeHeader"> WHAT YOU GOT GOING ON?</h1>
       <label>
         Select post type:
         <select className="postTypeSelect" value={postType} onChange={handlePostTypeChange}>
