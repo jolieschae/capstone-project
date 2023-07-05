@@ -82,7 +82,9 @@ function PostForm() {
             <div className="formCategoryBox">
               <label htmlFor="category">File Under:</label>
               <select className="eventFormSelectCategory" name="category"
-              placeholder="Category">
+              placeholder="Category"
+              defaultValue="">
+              <option value="" className="categoryOption" disabled>Select a category</option>
               <option className="categoryOption" value="Music">Music</option>
               <option className="categoryOption"
               value="DJ">DJs</option>
@@ -240,7 +242,9 @@ function PostForm() {
             <div className="formCategoryBox">
               <label htmlFor="category">File Under:</label>
               <select className="eventFormSelectCategory" name="category"
-              placeholder="Category">
+              placeholder="Category"
+              defaultValue="">
+              <option value="" className="categoryOption" disabled>Select a category</option>
               <option className="categoryOption" value="Music">Music</option>
               <option className="categoryOption"
               value="DJ">DJs</option>
@@ -326,7 +330,9 @@ function PostForm() {
             <div className="formCategoryBox">
               <label htmlFor="category">File Under:</label>
               <select className="eventFormSelectCategory" name="category"
-              placeholder="Category">
+              placeholder="Category"
+              defaultValue="">
+              <option value="" className="categoryOption" disabled>Select a category</option>
               <option className="categoryOption" value="Music">Music</option>
               <option className="categoryOption"
               value="DJ">DJs</option>
