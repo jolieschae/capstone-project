@@ -11,6 +11,7 @@ import EventMap from "./EventMap";
 import Gigs from "./Gigs"
 import Community from "./Community"
 import Post from "./Post"
+import Feed from "./Feed"
 import Error from "./Error";
 import './app.css'
 
@@ -35,6 +36,7 @@ function App() {
       <Route path='/collab' element={<Gigs />} />
       <Route path='/community' element={<Community />} />
       <Route path='/post' element={<Post />} />
+      <Route path='/feed' element={<Feed />} />
       <Route path='*' element={<Error />} />
       </Routes>
       </MyProvider>

@@ -1,0 +1,84 @@
+.comingSoon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+    font-family: abeatbyKai;
+}
+
+.comingSoonHeader {
+    color: #ffaf1b;
+    font-size: 50px;
+    font-family: "Stretch Pro";
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.582);
+}
+
+.newFeatureDescription{
+    width: 50%;
+    color: #ffaf1b;
+}
+
+.reportErrorButtonContainer {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.reportErrorButton {
+    z-index: 1;
+    --color: #ffaf1b;
+    --color2: rgb(30, 24, 10);
+    padding: 0.5em 1em;
+    background-color: black;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 16px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+  }
+
+  .reportErrorButton::after, .reportErrorButton::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+   }
+   
+   .reportErrorButton::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .reportErrorButton:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .reportErrorButton:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+   }
+   
+   .reportErrorButton:hover {
+    color: var(--color2);
+   }
+   
+   .reportErrorButton:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+   }
