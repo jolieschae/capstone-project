@@ -19,8 +19,9 @@ function LoginForm() {
 
     fetch(`http://127.0.0.1:5555/users/${username}`)
       .then((res) => res.json())
-      .then((data) => {
-        handleLogin(data);
+      .then((user) => {
+        console.log(user)
+        handleLogin(user);
         navigate('/events');
       })
       .catch((error) => {
@@ -28,6 +29,25 @@ function LoginForm() {
         setIsLoading(false);
       });
   }
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     setIsLoading(true);
+//     fetch("/login", {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ username, password }),
+//     }).then((r) => {
+//     setIsLoading(false);
+//     if (r.ok) {
+//         r.json().then((user) => onLogin(user));
+//     } else {
+//         r.json().then((err) => setErrors(err.errors));
+//     }
+//     });
+// }
 
   return (
     <form className="authForm" onSubmit={handleSubmit}>

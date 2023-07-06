@@ -10,13 +10,14 @@ import re
 from config import db, bcrypt
 
 class User(db.Model, SerializerMixin):
+
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     birthday = db.Column(db.String, nullable=False)
-    _password_hash = db.Column(db.String, nullable=False)
+    _password_hash = db.Column(db.String)
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
     avatar = db.Column(db.String)
@@ -26,6 +27,10 @@ class User(db.Model, SerializerMixin):
 
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    host_events = db.relationship("Event", backref="host")
+    user_events = db.relationship("UserEvent", backref="user")
+    collaborator_events = association_proxy('user_events', 'event')
 
     @validates('username')
     def validate_username(self, key, username):
@@ -92,15 +97,20 @@ class Event(db.Model, SerializerMixin):
     end_time = db.Column(db.DateTime, nullable=False)
     age_restrictions = db.Column(db.String, nullable=True)
     tickets = db.Column(db.String, nullable=True)
-    is_active = db.Column(db.Boolean, default=datetime.now() < date if date else False)
+    is_active = db.Column(db.Boolean, default=False)
 
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     user_events = db.relationship("UserEvent", backref="event")
-    users = association_proxy('user_events', 'user')
+    collaborators = association_proxy('user_events', 'user')
+    # collaborators = db.relationship('User', secondary='user_events', backref='collaborator_events')
 
     serialize_rules = ("-user_events.event", "-users.events")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.is_active = datetime.now() < self.date if self.date else False
 
     def __repr__(self):
         return f"<Title: {self.title} / Category: {self.category}>"
@@ -111,19 +121,39 @@ class UserEvent(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
-    host_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     collaborator_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    event = db.relationship('Event', backref='user_events')
-    host = db.relationship('User', backref='hosted_event_relationships')
-    collaborators = db.relationship('User', secondary='user_event_collaborator', backref='collaborator_event_relationships')
-    rsvps = db.relationship('User', secondary='user_event_rsvp', backref='rsvp_event_relationships')
-    attendees = db.relationship('User', secondary="attendance", backref='events_attended')
+    # collaborators = db.relationship('User', secondary='user_event_collaborator', backref='collaborator_event_relationships')
 
     serialize_rules = ("-user_events.event", "-event.user_events")
 
     def __repr__(self):
         return "<UserEvent>"
+
+class RSVP(db.Model, SerializerMixin):
+    __tablename__ = 'rsvps'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    attended = db.Column(db.Boolean, default=False)
+
+    user = db.relationship('User', backref='rsvps')
+    event = db.relationship('Event', backref='rsvps')
+
+    serialize_rules = ("-rsvps.user", "-rsvps.event")
+
+    def __repr__(self):
+        return "<RSVP>"
+
+
+
+
+# 
+
+
+
+
 
 
 # followers = db.Table(

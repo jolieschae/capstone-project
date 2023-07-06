@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 # Standard library imports
+import json
+import ipdb
 
 # Remote library imports
 from flask_restful import Resource
-from flask import request, session, make_response
+from flask import request, session, make_response, jsonify
 from sqlalchemy.exc import IntegrityError
 
 # Local imports
@@ -19,41 +21,45 @@ def home():
 
 class Users(Resource):
     def get(self):
-        return [user.to_dict() for user in User.query.all()], 200
+        users = User.query.all()
+        user_list = [user.to_dict() for user in users]
+        return user_list, 200
     
     def post(self):
         try:
             new_user = User(
-            username=request.form['username'],
-            first_name=request.form['first_name'],
-            last_name=request.form['first_name'],
-            email = request.form['email'],
-            birthday = request.form['birthday'],
-            gender = request.form['gender'],
-        )
+                username=request.json['username'],
+                first_name=request.json['first_name'],
+                last_name=request.json['last_name'],
+                email=request.json['email'],
+                birthday=request.json['birthday'],
+                gender=request.json['gender'],
+            )
         
             db.session.add(new_user)
             db.session.commit()
 
             new_user_dict = new_user.to_dict()
 
+            print(new_user_dict)
+
             return new_user_dict, 201
         except:
-            return {'error': '400: Validation error'}, 400
+            return jsonify({'error': '400: Validation error'}), 400
     
 api.add_resource(Users, '/users')
 
-class UserById(Resource):
-    def get(self, id):
-        user = User.query.filter_by(id=id).first()
+class UserByUsername(Resource):
+    def get(self,username):
+        user = User.query.filter_by(username=username).first()
 
         if user:
             return user.to_dict(), 200
         else:
             return {'error': '404: User not found'}, 404
         
-    def patch(self, id):
-        user = User.query.filter_by(id=id).first()
+    def patch(self, username):
+        user = User.query.filter_by(username=username).first()
         for attr in request.json():
             setattr(user, attr, request.json()[attr])
 
@@ -66,8 +72,8 @@ class UserById(Resource):
 
         return response
         
-    def delete(self, id):
-        user = User.query.filter_by(id=id).first()
+    def delete(self, username):
+        user = User.query.filter_by(username=username).first()
         if user:
             db.session.delete(user)
             db.session.commit()
@@ -78,58 +84,106 @@ class UserById(Resource):
 
         return {'error': "User not found"}, 404
         
-api.add_resource(UserById, '/users/<int:id>')
+api.add_resource(UserByUsername, '/users/<string:username>')
 
 class Signup(Resource):
-
     def post(self):
-
-        password = request.json['password']
-        password_confirmation = request.json['password_confirmation']
+        password = request.json.get('password')
+        password_confirmation = request.json.get('password_confirmation')
 
         if password != password_confirmation:
-            return {'error': '422 Unprocessable Entity: Passwords do not match'}, 422
+            return jsonify({'error': '422 Unprocessable Entity: Passwords do not match'}), 422
         
         user = User(
             username=request.json['username'],
             first_name=request.json['first_name'],
             last_name=request.json['last_name'],
-            email = request.json['email'],
-            birthday = request.json['birthday'],
-            gender = request.json['gender'],
+            email=request.json['email'],
+            birthday=request.json['birthday'],
+            gender=request.json['gender'],
         )
-        
         
         user.password_hash = password
 
         try:
-
             db.session.add(user)
             db.session.commit()
 
             session['user_id'] = user.id
 
-            return user.to_dict(), 201
-        
-        except IntegrityError:
+            print(user.to_dict())
 
-            return {'error': '422 Unprocessable Entity'}, 422
+            return user.to_dict(), 201
+        except IntegrityError:
+            return jsonify({'error': '422 Unprocessable Entity'}), 422
         
 class Events(Resource):
     def get(self):
-        events_list = list()
-        for event in Event.query.all():
-            event_dict = event.to_dict()
-            if "description" in event_dict:
-                if type(event_dict["description"]) == str:
-                    event_dict['description'] = json.loads(event_dict['description'])
+        events = Event.query.all()
+        event_list = [event.to_dict() for event in events]
+        return event_list, 200
 
-            events_list.append(event_dict)
-        return events_list, 200
+    def post(self):
+        try:
+            new_event = Event(
+                host_id=request.json['host_id'],
+                title=request.json['title'],
+                thumbnail=request.json['thumbnail'],
+                category=request.json['category'],
+                subcategory=request.json['subcategory'],
+                description=request.json['description'],
+                venue=request.json.get('venue'),
+                city=request.json['city'],
+                state=request.json['state'],
+                zip=request.json['zip'],
+                address=request.json['address'],
+                date=request.json['date'],
+                start_time=request.json['start_time'],
+                end_time=request.json['end_time'],
+                age_restrictions=request.json.get('age_restrictions'),
+                tickets=request.json.get('tickets'),
+                is_active=True
+            )
 
+            db.session.add(new_event)
+            db.session.commit()
 
+            new_event_dict = new_event.to_dict()
+
+            return jsonify(new_event_dict), 201
+        except:
+            return jsonify({'error': '400: Validation error'}), 400
+
+    def patch(self, event_id):
+        event = Event.query.get(event_id)
+
+        if not event:
+            return jsonify({'error': '404: Event not found'}), 404
+
+        try:
+            for field in request.json:
+                setattr(event, field, request.json[field])
+
+            db.session.commit()
+
+            updated_event_dict = event.to_dict()
+
+            return jsonify(updated_event_dict), 200
+        except:
+            return jsonify({'error': '400: Validation error'}), 400
+
+    def delete(self, event_id):
+        event = Event.query.get(event_id)
+
+        if not event:
+            return jsonify({'error': '404: Event not found'}), 404
+
+        db.session.delete(event)
+        db.session.commit()
+
+        return '', 204
     
-api.add_resource(Events, '/Events')
+api.add_resource(Events, '/events')
 
 class EventById(Resource):
     def get(self, id):
@@ -161,26 +215,27 @@ api.add_resource(EventById, '/events/<int:id>')
 class UserEvents(Resource):
     def get(self):
         return [user_event.to_dict() for user_event in UserEvent.query.all()]
-    
-    def post(self):
 
-        new_rsvp = UserEvent(
+    def post(self):
+        new_user_event = UserEvent(
             user_id=request.json['user_id'],
             event_id=request.json['event_id'],
-            attended=False
+            host_id=request.json['host_id'],
+            collaborator_id=request.json.get('collaborator_id')
         )
-        
+
         try:
-            db.session.add(new_rsvp)
+            db.session.add(new_user_event)
             db.session.commit()
 
-            new_rsvp_dict = new_rsvp.to_dict()
+            new_user_event_dict = new_user_event.to_dict()
 
-            return new_rsvp_dict, 201
+            return new_user_event_dict, 201
         except:
             return {'error': '400: Validation error'}, 400
 
-api.add_resource(UserEvents, '/rsvps')
+
+api.add_resource(UserEvents, '/userevents/')
 
 class UserEventById(Resource):
     def get(self, id):
@@ -189,8 +244,8 @@ class UserEventById(Resource):
         if user_event:
             return user_event.to_dict(), 200
         else:
-            return {'error': '404: Attraction not found'}, 404
-        
+            return {'error': '404: Event not found'}, 404
+
     def patch(self, id):
         user_event = UserEvent.query.filter_by(id=id).first()
         for attr in request.json:
@@ -204,7 +259,7 @@ class UserEventById(Resource):
         )
 
         return response
-    
+
     def delete(self, id):
         user_event = UserEvent.query.filter_by(id=id).first()
 
@@ -215,44 +270,19 @@ class UserEventById(Resource):
             response = make_response("", 204)
 
             return response
-        return {'error': "RSVP not found"}, 404
-    
-api.add_resource(UserEventById, '/rsvps/<int:id>')
+        return {'error': "Event not found"}, 404
+
+
+api.add_resource(UserEventById, '/userevents/<int:id>')
 
 class UserEventByUserId(Resource):
     def get(self, id):
+        user_events = UserEvent.query.filter(UserEvent.user_id == id).all()
+        return [user_event.to_dict() for user_event in user_events]
 
-        return [adventure.to_dict() for adventure in UserEvent.query.filter(UserEvent.user_id == id).all()]
-    
-api.add_resource(UserEventByUserId, '/rsvps/user/<int:id>')
 
-class Signup(Resource):
+api.add_resource(UserEventByUserId, '/userevents/users/<int:id>')
 
-    def post(self):
-
-        password = request.json['password']
-        
-        user = User(
-            username = request.json['username'],
-            first_name = request.json['first_name'],
-            last_name = request.json['last_name'],
-            height = request.json['height']
-        )
-        
-        user.password_hash = password
-
-        try:
-
-            db.session.add(user)
-            db.session.commit()
-
-            session['user_id'] = user.id
-
-            return user.to_dict(), 201
-        
-        except IntegrityError:
-
-            return {'error': '422 Unprocessable Entity'}, 422
         
 class CheckSession(Resource):
 
@@ -270,6 +300,8 @@ class Login(Resource):
 
     def post(self):
 
+        # print("ASDFASDFASDF", request)
+
         username = request.json['username']
         password = request.json['password']
 
@@ -280,6 +312,8 @@ class Login(Resource):
 
                 session['user_id'] = user.id
                 return user.to_dict(), 200
+            # else:
+            #     print("help")
             
         return {'error': '401 Unauthorized'}, 401
     
@@ -299,9 +333,6 @@ api.add_resource(Signup, '/signup')
 api.add_resource(CheckSession, '/check_session')
 api.add_resource(Login, '/login')
 api.add_resource(Logout, '/logout')
-
-
-
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

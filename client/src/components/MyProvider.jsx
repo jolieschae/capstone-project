@@ -10,6 +10,7 @@ const MyProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [sessionId, setSessionId] = useState(localStorage.getItem('sessionId') || '');
 
+
   useEffect(() => {
     fetchEventsData();
     fetchUsersData();
@@ -34,7 +35,9 @@ const MyProvider = ({ children }) => {
 
   const fetchUsersData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/users');
+      const response = await axios.get(`/users`);
+      console.log("JFJFJFJFJJFJF", response.data)
+      console.log("who am i ", usersData)
       setUsersData(response.data);
     } catch (error) {
       console.log(error);

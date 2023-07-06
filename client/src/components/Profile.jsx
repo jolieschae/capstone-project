@@ -10,35 +10,35 @@ function Profile() {
   const { currentUser } = useContext(MyContext);
   const { usersData } = useContext(MyContext);
   console.log(currentUser);
-  const [currentStatusPage, setCurrentStatusPage] = useState(1);
-  const [currentGigPage, setCurrentGigPage] = useState(1);
- const user = usersData.find((user) => user.username === 'jinxley');
- if (!user) {
-    return <p>User not found.</p>;
-  }
+  // const [currentStatusPage, setCurrentStatusPage] = useState(1);
+  // const [currentGigPage, setCurrentGigPage] = useState(1);
+//  const user = usersData.find((user));
+//  if (!user) {
+//     return <p>User not found.</p>;
+//   }
   
-  const statusesPerPage = 4;
-  const gigsPerPage = 4;
+  // const statusesPerPage = 4;
+  // const gigsPerPage = 4;
 
 
-  const indexOfLastStatus = currentStatusPage * statusesPerPage;
-  const indexOfFirstStatus = indexOfLastStatus - statusesPerPage;
-  const currentStatuses = user.statuses.slice(indexOfFirstStatus, indexOfLastStatus);
+  // const indexOfLastStatus = currentStatusPage * statusesPerPage;
+  // const indexOfFirstStatus = indexOfLastStatus - statusesPerPage;
+  // const currentStatuses = user.statuses.slice(indexOfFirstStatus, indexOfLastStatus);
 
-  const indexOfLastGig = currentGigPage * gigsPerPage;
-  const indexOfFirstGig = indexOfLastGig - gigsPerPage;
-  const currentGigs = user.gighistory.slice(indexOfFirstGig, indexOfLastGig);
+  // const indexOfLastGig = currentGigPage * gigsPerPage;
+  // const indexOfFirstGig = indexOfLastGig - gigsPerPage;
+  // const currentGigs = user.gighistory.slice(indexOfFirstGig, indexOfLastGig);
 
-  const totalStatusPages = Math.ceil(user.statuses.length / statusesPerPage);
-  const totalGigPages = Math.ceil(user.gighistory.length / gigsPerPage);
+  // const totalStatusPages = Math.ceil(user.statuses.length / statusesPerPage);
+  // const totalGigPages = Math.ceil(user.gighistory.length / gigsPerPage);
 
-  const handleStatusPageChange = (pageNumber) => {
-    setCurrentStatusPage(pageNumber);
-  };
+  // const handleStatusPageChange = (pageNumber) => {
+  //   setCurrentStatusPage(pageNumber);
+  // };
 
-  const handleGigPageChange = (pageNumber) => {
-    setCurrentGigPage(pageNumber);
-  };
+  // const handleGigPageChange = (pageNumber) => {
+  //   setCurrentGigPage(pageNumber);
+  // };
 
   return (
     <div className="profileWrapper">
@@ -62,7 +62,7 @@ function Profile() {
                   </div>
                   <div className="profileDetails">
                     <p className="profileFullname">JOLIE GIELCHINSKY</p>
-                    <p className="profileUsername">@jinxley</p>
+                    <p className="profileUsername">@{usersData.username}</p>
                     <p className="profileArtform">Visual Artist</p>
                     <p className="profileLocation">⟟ New York</p>
                   </div>
@@ -92,7 +92,7 @@ function Profile() {
               </div>
             </div>
           </div>
-          <div className="profileStatusSection">
+          {/* <div className="profileStatusSection">
             <div className="profileInfo">
               <div className="profileStatusCard">
               <div className="profileStatuses">
@@ -125,8 +125,8 @@ function Profile() {
               </div>
               </div>
             </div>
-          </div>
-          <div className="profileGigSection">
+          </div> */}
+          {/* <div className="profileGigSection">
             <div className="profileInfo">
               <div className="profileGigCard">
               <div className="profileCollabs">
@@ -159,7 +159,7 @@ function Profile() {
               </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="profileContent">
