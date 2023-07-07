@@ -10,8 +10,9 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { handleLogin } = useContext(MyContext);
-  
+  const { handleLogin, setUsername: setGlobalUsername } = useContext(MyContext);
+
+  // console.log(setGlobalUsername)
 
   function handleSubmit(e) {
     e.preventDefault();
