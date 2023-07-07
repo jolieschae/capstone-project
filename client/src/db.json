@@ -1,400 +1,399 @@
-{ 
-    "events" :
-[
 {
-"age": "21+",
-"artform": "Music Group",
-"artist": "Kitchen Boys",
-"calendar": {
-"date": "05/05/2023",
-"day": "Friday",
-"time": "10:00 PM EST"
-},
-"category": "Music",
-"collaborators": [
-"prodclink",
-"typevlad"
-],
-"description": "Yerrrrr! Get ready to party with the Kitchen Boys, the hardest meme rap group around! Come see us perform our latest hit single 'Tom Cruise' live. Get ready to laugh and dance alllllllll night long. We got catchy beats, hilarious lyrics, and memes on deck. The Kitchen Boys will cook up something special for you to remember. Bring your shorty, bring your friends, bring your pets, bring mom and dad. You're not going to want to miss this. Doors at 10pm, We'll be on at 11pm.",
-"id": 1,
-"location": {
-"city": "New York City",
-"neighborhood": "Lower East Side",
-"state": "New York",
-"street": "152 Ludlow Street",
-"street 2": "",
-"zip": 10002
-},
-"price": "Free",
-"share": "share-link.com",
-"subcategory": "Groups",
-"tags": [
-"meme rap",
-"rap",
-"hip-hop",
-"party"
-],
-"thumbnail": "https://imgur.com/8Ubpgfh.jpg",
-"title": "Kitchen Boys Live at Kind Regards",
-"user": "kitchenboys",
-"venue": "Kind Regards"
-},
-{
-"age": "18+",
-"artform": "Producer",
-"artist": "Sleepy Pharaoh",
-"calendar": {
-"date": "05/06/2023",
-"day": "Saturday",
-"time": "9:00 PM EST"
-},
-"category": "Music",
-"description": "The Ultimate MC & Producer Tournament! Pull up for some friendly competition featuring some of the neighborhood's best rappers, producers, and artists. I'll be showcasing some of my latest beats and tracks. Doors are at 9pm. Expecting my set to run at 10pm. Excited to see y'all there!",
-"id": 2,
-"location": {
-"city": "Brooklyn",
-"neighborhood": "Bushwick",
-"state": "New York",
-"street": "1114 Dekalb Ave",
-"street 2": "",
-"zip": 11221
-},
-"price": "Free",
-"share": "share-link.com",
-"subcategory": "producers",
-"tags": [
-"rap",
-"hip-hop",
-"beats",
-"producers",
-"competitions"
-],
-"thumbnail": "https://imgur.com/Y3031kF.jpg",
-"tickets": "ticket-link.com",
-"title": "MC and Producer Tournament",
-"user": "sleepypharaoh",
-"venue": "Secret Pour"
-},
-{
-"age": "21+",
-"artform": "Singer",
-"artist": "Montana Janel",
-"calendar": {
-"date": "04/28/2023",
-"day": "Friday",
-"time": "10:00 PM EST"
-},
-"category": "Music",
-"description": "Hello, lovelies! Your fairy songstress, Montana, here! I am thrilled to be performing at Ponyboy for the 1-year anniversary of our beloved music collective, Lucky Cat Record Club! It's been an incredible year of music, friendship, and community, and I can't wait to dance and celebrate with all of you. This performance is a reflection of the beauty and magic that surrounds us, and I invite you to come and be transported to a world of dreamy melodies and good times. Let's raise a glass to how far we've come! Don't miss this celebration, get your tickets now!",
-"id": 3,
-"location": {
-"city": "Brooklyn",
-"neighborhood": "Greenpoint",
-"state": "New York",
-"street": "632 Manhattan Ave",
-"street 2": "",
-"zip": "11222"
-},
-"price": "$10",
-"share": "share-link.com",
-"subcategory": "Singers",
-"tags": [
-"pop",
-"dance",
-"party"
-],
-"thumbnail": "https://imgur.com/DKVB3gv.jpg",
-"tickets": "ticket-link.com",
-"title": "Lucky Cat Record Club 1yr Anniversary Party",
-"user": "montanajanel",
-"venue": "Ponyboy"
-},
-{
-"age": "21+",
-"artform": "DJ",
-"artist": "Orson",
-"calendar": {
-"date": "04/29/2023",
-"day": "Saturday",
-"time": "10:00 PM EST"
-},
-"category": "Music",
-"collaborators": [
-"rogersanchez",
-"loveclub"
-],
-"description": "Martinis shaken, not stirred. Disco beats by yours truly, and my fellow DJs Roger Sanchez and Love Club. Come be a part of the launh of Public Hotel's new #ARTSPACE, ignitng a night of glamour we call Disco is Forever. From live performances to screenings, theatre to nightlife, the unexpected is only just the beginning at our new multimedia #ARTSPACE. PULL UP!",
-"id": 4,
-"location": {
-"city": "New York City",
-"neighborhood": "Lower East Side",
-"state": "New York",
-"street": "215 Chrystie Street",
-"street 2": "",
-"zip": 10002
-},
-"price": "$15",
-"share": "share-link.com",
-"subcategory": "DJ",
-"tags": [
-"nightlife",
-"party",
-"pop",
-"disco",
-"techno"
-],
-"thumbnail": "https://imgur.com/wXzRoFI.jpg",
-"tickets": "ticket-link.com",
-"title": "#ARTSPACE Launch Party",
-"user": "orson",
-"venue": "PUBLIC Hotel"
-},
-{
-"age": "All Ages",
-"artform": "Director",
-"artist": "Jon Ryan Sugimoto",
-"calendar": {
-"date": "04/28/2023",
-"day": "Thursday",
-"time": "7:00 PM EST"
-},
-"category": "Film",
-"collaborators": [
-"Andrew Lutheran",
-"Iddo Goldberg",
-"Ellen Burke",
-"Brenna Webb",
-"Jolie Gielchinsky"
-],
-"description": "All my New York City people, come check out the screening of my latest short film, 'Full Time', before we hit the Beverly Hills Film Fest later this month. Starring Andrew Lutheran and Iddo Goldberg, the film tells a modern-day parable. College graduation is over, and Michael (Andrew Lutheran) has his entire life before him. Flanked by his two best friends, Michael's first instinct is to go skateboarding in the park, but as the trio reflects on their future, a mysterious man (Iddo Goldberg) approaches and asks them if anyone wants to earn some easy cash... Come see how it all plays out! Can't wait to see you guys there!",
-"id": 5,
-"images": [
-"https://imgur.com/1k3goHE.jpg",
-"https://imgur.com/KjBcOmF.jpg",
-"https://imgur.com/RBbvES9.jpg"
-],
-"location": {
-"city": "New York City",
-"neighborhood": "Lower East Side",
-"state": "New York",
-"street": "167 Orchard Street",
-"street 2": "",
-"zip": 10002
-},
-"price": "Free",
-"share": "share-link.com",
-"subcategory": "Screening",
-"tags": [
-"short film",
-"drama"
-],
-"thumbnail": "https://imgur.com/Xp1H6vc.jpg",
-"tickets": "ticket-link.com",
-"title": "Full Time, Pre-Film Fest Screening",
-"user": "jonryanisdead",
-"venue": "The Slipper Room"
-},
-{
-"age": "18+",
-"artform": "Comedian",
-"artist": "Savannah Snow",
-"calendar": {
-"date": "04/26/2023",
-"day": "Wednesday",
-"time": "8:30 PM EST"
-},
-"category": "Comedy",
-"description": "PULL UP on me and this ~talented~ troupe of dumbass comedians. We'll take the stage and whip up a series of unscripted scenes and characters based solely on audience suggestions. You never know what kind of wacky situations we'll come up with, we sure don't, but we guarantee it will be side-splittingly funny. Find yourself swept up in a musical number or caught in the middle of a bizarre love triangle. Grab your friends, grab your mom, your cat, bring a g-ddamn sense of humor, and get ready for a night you won't forget.",
-"id": 6,
-"images": [
-"https://imgur.com/pUeOGIA.jpg",
-"https://imgur.com/IeqQT4v.jpg",
-"https://imgur.com/gRVPOXc.jpg"
-],
-"location": {
-"city": "Brooklyn",
-"neighborhood": "East Williamsburg",
-"state": "New York",
-"street": "167 Graham Ave",
-"street 2": "",
-"zip": 11206
-},
-"price": "$10",
-"share": "share-link.com",
-"subcategory": "shows",
-"tags": [
-"comedy",
-"women in comedy",
-"improv"
-],
-"thumbnail": "https://imgur.com/HoKHd8h.jpg",
-"tickets": "ticket-link.com",
-"title": "Pump Up: The Show",
-"user": "officialsavsnow",
-"venue": "Brooklyn Comedy Collective"
-},
-{
-"age": "All Ages",
-"artform": "Painter",
-"artist": "Natasha Bartley",
-"calendar": {
-"date": "04/29/2023",
-"day": "Saturday",
-"time": "11:00 AM EST"
-},
-"category": "Visual Arts",
-"description": "Hey, guys! I'll be setting up shop at Artists and Fleas this Saturday from 11am-6pm. I specialize in oil paintingsm and I'll be unveiling my latest pieces, all framed and ready to go home with you! See my profile for more samples of my work and photos from past events. So excited to meet you guys! The weather's going to be amazing!",
-"id": 7,
-"images": [
-"https://imgur.com/6LBViWC.jpg",
-"https://imgur.com/dEvWGXG.jpg",
-"https://imgur.com/fsSX3Ah.jpg"
-],
-"location": {
-"city": "Brooklyn",
-"neighborhood": "Williamsburg",
-"state": "New York",
-"street": "70 N 7th Street",
-"street 2": "",
-"zip": 11249
-},
-"price": "Free",
-"share": "share-link.com",
-"subcategory": "Painting & Drawing",
-"tags": [
-"oil painting",
-"visual arts",
-"markets",
-"booths"
-],
-"thumbnail": "https://imgur.com/fFFS1d8.jpg",
-"title": "Catch me at Artists and Fleas!",
-"user": "natashanirvana",
-"venue": "Artists and Fleas"
-},
-{
-"age": "21+",
-"artform": "Fashion Designer",
-"artist": "Sarina",
-"calendar": {
-"date": "05/06/2023",
-"day": "Saturday",
-"time": "8:00 PM EST"
-},
-"category": "Fashion & Textiles",
-"collaborators": [
-"Mellow Domino",
-"Remi",
-"Krysten Java",
-"Mars Bars"
-],
-"description": "If I don't see you here tomorrow, you don't love me! Remi and I are emptying our closet! Designer, vintage,absolutely SICK finds on the racks! We'll be featuing other amazing WOMEN vendors, tattoos, drinks, and more! Live performances by DJs and Mellow Domingo! Come support your girlies!",
-"id": 8,
-"images": [
-"https://imgur.com/VGLCV2l.jpg",
-"https://imgur.com/6K0yj0h.jpg",
-"https://imgur.com/KEMlNh1.jpg",
-"https://imgur.com/wCUyFxJ.jpg"
-],
-"location": {
-"city": "Brooklyn",
-"neighborhood": "East Williamsburg",
-"state": "New York",
-"street": "17 Meadow Street",
-"street 2": "",
-"zip": 11206
-},
-"price": "$15",
-"share": "share-link.com",
-"subcategory": "Women's Clothing",
-"tags": [
-"womens fashion",
-"thrifting",
-"vintage"
-],
-"thumbnail": "https://imgur.com/p8ELSHG.jpg",
-"tickets": "ticket-link.com",
-"title": "Rem&Ri's Femme Fatale Pop-Up",
-"user": "sariri",
-"venue": "The Meadows"
-},
-{
-"age": "All Ages",
-"artform": "Photographer",
-"artist": "DeAndre Mitchells",
-"calendar": {
-"date": "05/23/2023",
-"day": "Tuesday",
-"time": "2:00 PM EST"
-},
-"category": "Photography",
-"description": "My first solo show is here! Come see photos by myself + an immersive sensory experience. Drinks, music and vibes available. I'm so excited for you guys to see what I've been working on. Save the date and slide thru!",
-"id": 9,
-"images": [
-"https://imgur.com/DWYjsNs.jpg",
-"https://imgur.com/MsmxofK.jpg"
-],
-"location": {
-"city": "Brooklyn",
-"neighborhood": "Red Hook",
-"state": "New York",
-"street": "95 Verona Street",
-"street 2": "",
-"zip": 11231
-},
-"price": "Free",
-"share": "share-link.com",
-"subcategory": "Gallery",
-"tags": [
-"photography",
-"black & white",
-"mixed media",
-"gallery"
-],
-"thumbnail": "https://imgur.com/SXXLy1A.jpg",
-"title": "MADE WELL Gallery",
-"user": "teesndsneaks",
-"venue": "Mat Blak"
-},
-{
-"age": "All Ages",
-"artform": "Dancer",
-"artist": "Zummy Mohammed",
-"calendar": {
-"date": "04/27/2023",
-"day": "Thursday",
-"time": "7:00 PM EST"
-},
-"category": "Performing Arts",
-"description": "Hey y'all! It's been WEEKS of working our butts off, and it's all about to pay off. I'm so excited to invite all my friends, family, and followers out to the production of Cinderella's opening weekend, which is kicking off this Thursday night. pullUP!",
-"id": 10,
-"images": [
-"https://imgur.com/KdtbmDB.jpg",
-"https://imgur.com/2MGQbfz.jpg"
-],
-"location": {
-"city": "New York City",
-"neighborhood": "Time's Square",
-"state": "New York",
-"street": "214 W 42nd Street",
-"street 2": "",
-"zip": 110036
-},
-"price": "$82+",
-"share": "share-link.com",
-"subcategory": "Theater",
-"tags": [
-"musical",
-"singing",
-"dancing",
-"acting",
-"broadway"
-],
-"thumbnail": "https://imgur.com/i59ejqT.jpg",
-"tickets": "ticket-link.com",
-"title": "Cinderella: The Musical",
-"user": "thezummymohammed",
-"venue": "New Amsterdam Theater"
-}
-]
+  "events": [
+    {
+      "age": "21+",
+      "artform": "Music Group",
+      "artist": "Kitchen Boys",
+      "calendar": {
+        "date": "05/05/2023",
+        "day": "Friday",
+        "time": "10:00 PM EST"
+      },
+      "category": "Music",
+      "collaborators": [
+        "prodclink",
+        "typevlad"
+      ],
+      "description": "Yerrrrr! Get ready to party with the Kitchen Boys, the hardest meme rap group around! Come see us perform our latest hit single 'Tom Cruise' live. Get ready to laugh and dance alllllllll night long. We got catchy beats, hilarious lyrics, and memes on deck. The Kitchen Boys will cook up something special for you to remember. Bring your shorty, bring your friends, bring your pets, bring mom and dad. You're not going to want to miss this. Doors at 10pm, We'll be on at 11pm.",
+      "id": 1,
+      "location": {
+        "city": "New York City",
+        "neighborhood": "Lower East Side",
+        "state": "New York",
+        "street": "152 Ludlow Street",
+        "street 2": "",
+        "zip": 10002
+      },
+      "price": "Free",
+      "share": "share-link.com",
+      "subcategory": "Groups",
+      "tags": [
+        "meme rap",
+        "rap",
+        "hip-hop",
+        "party"
+      ],
+      "thumbnail": "https://imgur.com/8Ubpgfh.jpg",
+      "title": "Kitchen Boys Live at Kind Regards",
+      "user": "kitchenboys",
+      "venue": "Kind Regards"
+    },
+    {
+      "age": "18+",
+      "artform": "Producer",
+      "artist": "Sleepy Pharaoh",
+      "calendar": {
+        "date": "05/06/2023",
+        "day": "Saturday",
+        "time": "9:00 PM EST"
+      },
+      "category": "Music",
+      "description": "The Ultimate MC & Producer Tournament! Pull up for some friendly competition featuring some of the neighborhood's best rappers, producers, and artists. I'll be showcasing some of my latest beats and tracks. Doors are at 9pm. Expecting my set to run at 10pm. Excited to see y'all there!",
+      "id": 2,
+      "location": {
+        "city": "Brooklyn",
+        "neighborhood": "Bushwick",
+        "state": "New York",
+        "street": "1114 Dekalb Ave",
+        "street 2": "",
+        "zip": 11221
+      },
+      "price": "Free",
+      "share": "share-link.com",
+      "subcategory": "producers",
+      "tags": [
+        "rap",
+        "hip-hop",
+        "beats",
+        "producers",
+        "competitions"
+      ],
+      "thumbnail": "https://imgur.com/Y3031kF.jpg",
+      "tickets": "ticket-link.com",
+      "title": "MC and Producer Tournament",
+      "user": "sleepypharaoh",
+      "venue": "Secret Pour"
+    },
+    {
+      "age": "21+",
+      "artform": "Singer",
+      "artist": "Montana Janel",
+      "calendar": {
+        "date": "04/28/2023",
+        "day": "Friday",
+        "time": "10:00 PM EST"
+      },
+      "category": "Music",
+      "description": "Hello, lovelies! Your fairy songstress, Montana, here! I am thrilled to be performing at Ponyboy for the 1-year anniversary of our beloved music collective, Lucky Cat Record Club! It's been an incredible year of music, friendship, and community, and I can't wait to dance and celebrate with all of you. This performance is a reflection of the beauty and magic that surrounds us, and I invite you to come and be transported to a world of dreamy melodies and good times. Let's raise a glass to how far we've come! Don't miss this celebration, get your tickets now!",
+      "id": 3,
+      "location": {
+        "city": "Brooklyn",
+        "neighborhood": "Greenpoint",
+        "state": "New York",
+        "street": "632 Manhattan Ave",
+        "street 2": "",
+        "zip": "11222"
+      },
+      "price": "$10",
+      "share": "share-link.com",
+      "subcategory": "Singers",
+      "tags": [
+        "pop",
+        "dance",
+        "party"
+      ],
+      "thumbnail": "https://imgur.com/DKVB3gv.jpg",
+      "tickets": "ticket-link.com",
+      "title": "Lucky Cat Record Club 1yr Anniversary Party",
+      "user": "montanajanel",
+      "venue": "Ponyboy"
+    },
+    {
+      "age": "21+",
+      "artform": "DJ",
+      "artist": "Orson",
+      "calendar": {
+        "date": "04/29/2023",
+        "day": "Saturday",
+        "time": "10:00 PM EST"
+      },
+      "category": "Music",
+      "collaborators": [
+        "rogersanchez",
+        "loveclub"
+      ],
+      "description": "Martinis shaken, not stirred. Disco beats by yours truly, and my fellow DJs Roger Sanchez and Love Club. Come be a part of the launh of Public Hotel's new #ARTSPACE, ignitng a night of glamour we call Disco is Forever. From live performances to screenings, theatre to nightlife, the unexpected is only just the beginning at our new multimedia #ARTSPACE. PULL UP!",
+      "id": 4,
+      "location": {
+        "city": "New York City",
+        "neighborhood": "Lower East Side",
+        "state": "New York",
+        "street": "215 Chrystie Street",
+        "street 2": "",
+        "zip": 10002
+      },
+      "price": "$15",
+      "share": "share-link.com",
+      "subcategory": "DJ",
+      "tags": [
+        "nightlife",
+        "party",
+        "pop",
+        "disco",
+        "techno"
+      ],
+      "thumbnail": "https://imgur.com/wXzRoFI.jpg",
+      "tickets": "ticket-link.com",
+      "title": "#ARTSPACE Launch Party",
+      "user": "orson",
+      "venue": "PUBLIC Hotel"
+    },
+    {
+      "age": "All Ages",
+      "artform": "Director",
+      "artist": "Jon Ryan Sugimoto",
+      "calendar": {
+        "date": "04/28/2023",
+        "day": "Thursday",
+        "time": "7:00 PM EST"
+      },
+      "category": "Film",
+      "collaborators": [
+        "Andrew Lutheran",
+        "Iddo Goldberg",
+        "Ellen Burke",
+        "Brenna Webb",
+        "Jolie Gielchinsky"
+      ],
+      "description": "All my New York City people, come check out the screening of my latest short film, 'Full Time', before we hit the Beverly Hills Film Fest later this month. Starring Andrew Lutheran and Iddo Goldberg, the film tells a modern-day parable. College graduation is over, and Michael (Andrew Lutheran) has his entire life before him. Flanked by his two best friends, Michael's first instinct is to go skateboarding in the park, but as the trio reflects on their future, a mysterious man (Iddo Goldberg) approaches and asks them if anyone wants to earn some easy cash... Come see how it all plays out! Can't wait to see you guys there!",
+      "id": 5,
+      "images": [
+        "https://imgur.com/1k3goHE.jpg",
+        "https://imgur.com/KjBcOmF.jpg",
+        "https://imgur.com/RBbvES9.jpg"
+      ],
+      "location": {
+        "city": "New York City",
+        "neighborhood": "Lower East Side",
+        "state": "New York",
+        "street": "167 Orchard Street",
+        "street 2": "",
+        "zip": 10002
+      },
+      "price": "Free",
+      "share": "share-link.com",
+      "subcategory": "Screening",
+      "tags": [
+        "short film",
+        "drama"
+      ],
+      "thumbnail": "https://imgur.com/Xp1H6vc.jpg",
+      "tickets": "ticket-link.com",
+      "title": "Full Time, Pre-Film Fest Screening",
+      "user": "jonryanisdead",
+      "venue": "The Slipper Room"
+    },
+    {
+      "age": "18+",
+      "artform": "Comedian",
+      "artist": "Savannah Snow",
+      "calendar": {
+        "date": "04/26/2023",
+        "day": "Wednesday",
+        "time": "8:30 PM EST"
+      },
+      "category": "Comedy",
+      "description": "PULL UP on me and this ~talented~ troupe of dumbass comedians. We'll take the stage and whip up a series of unscripted scenes and characters based solely on audience suggestions. You never know what kind of wacky situations we'll come up with, we sure don't, but we guarantee it will be side-splittingly funny. Find yourself swept up in a musical number or caught in the middle of a bizarre love triangle. Grab your friends, grab your mom, your cat, bring a g-ddamn sense of humor, and get ready for a night you won't forget.",
+      "id": 6,
+      "images": [
+        "https://imgur.com/pUeOGIA.jpg",
+        "https://imgur.com/IeqQT4v.jpg",
+        "https://imgur.com/gRVPOXc.jpg"
+      ],
+      "location": {
+        "city": "Brooklyn",
+        "neighborhood": "East Williamsburg",
+        "state": "New York",
+        "street": "167 Graham Ave",
+        "street 2": "",
+        "zip": 11206
+      },
+      "price": "$10",
+      "share": "share-link.com",
+      "subcategory": "shows",
+      "tags": [
+        "comedy",
+        "women in comedy",
+        "improv"
+      ],
+      "thumbnail": "https://imgur.com/HoKHd8h.jpg",
+      "tickets": "ticket-link.com",
+      "title": "Pump Up: The Show",
+      "user": "officialsavsnow",
+      "venue": "Brooklyn Comedy Collective"
+    },
+    {
+      "age": "All Ages",
+      "artform": "Painter",
+      "artist": "Natasha Bartley",
+      "calendar": {
+        "date": "04/29/2023",
+        "day": "Saturday",
+        "time": "11:00 AM EST"
+      },
+      "category": "Visual Arts",
+      "description": "Hey, guys! I'll be setting up shop at Artists and Fleas this Saturday from 11am-6pm. I specialize in oil paintingsm and I'll be unveiling my latest pieces, all framed and ready to go home with you! See my profile for more samples of my work and photos from past events. So excited to meet you guys! The weather's going to be amazing!",
+      "id": 7,
+      "images": [
+        "https://imgur.com/6LBViWC.jpg",
+        "https://imgur.com/dEvWGXG.jpg",
+        "https://imgur.com/fsSX3Ah.jpg"
+      ],
+      "location": {
+        "city": "Brooklyn",
+        "neighborhood": "Williamsburg",
+        "state": "New York",
+        "street": "70 N 7th Street",
+        "street 2": "",
+        "zip": 11249
+      },
+      "price": "Free",
+      "share": "share-link.com",
+      "subcategory": "Painting & Drawing",
+      "tags": [
+        "oil painting",
+        "visual arts",
+        "markets",
+        "booths"
+      ],
+      "thumbnail": "https://imgur.com/fFFS1d8.jpg",
+      "title": "Catch me at Artists and Fleas!",
+      "user": "natashanirvana",
+      "venue": "Artists and Fleas"
+    },
+    {
+      "age": "21+",
+      "artform": "Fashion Designer",
+      "artist": "Sarina",
+      "calendar": {
+        "date": "05/06/2023",
+        "day": "Saturday",
+        "time": "8:00 PM EST"
+      },
+      "category": "Fashion & Textiles",
+      "collaborators": [
+        "Mellow Domino",
+        "Remi",
+        "Krysten Java",
+        "Mars Bars"
+      ],
+      "description": "If I don't see you here tomorrow, you don't love me! Remi and I are emptying our closet! Designer, vintage,absolutely SICK finds on the racks! We'll be featuing other amazing WOMEN vendors, tattoos, drinks, and more! Live performances by DJs and Mellow Domingo! Come support your girlies!",
+      "id": 8,
+      "images": [
+        "https://imgur.com/VGLCV2l.jpg",
+        "https://imgur.com/6K0yj0h.jpg",
+        "https://imgur.com/KEMlNh1.jpg",
+        "https://imgur.com/wCUyFxJ.jpg"
+      ],
+      "location": {
+        "city": "Brooklyn",
+        "neighborhood": "East Williamsburg",
+        "state": "New York",
+        "street": "17 Meadow Street",
+        "street 2": "",
+        "zip": 11206
+      },
+      "price": "$15",
+      "share": "share-link.com",
+      "subcategory": "Women's Clothing",
+      "tags": [
+        "womens fashion",
+        "thrifting",
+        "vintage"
+      ],
+      "thumbnail": "https://imgur.com/p8ELSHG.jpg",
+      "tickets": "ticket-link.com",
+      "title": "Rem&Ri's Femme Fatale Pop-Up",
+      "user": "sariri",
+      "venue": "The Meadows"
+    },
+    {
+      "age": "All Ages",
+      "artform": "Photographer",
+      "artist": "DeAndre Mitchells",
+      "calendar": {
+        "date": "05/23/2023",
+        "day": "Tuesday",
+        "time": "2:00 PM EST"
+      },
+      "category": "Photography",
+      "description": "My first solo show is here! Come see photos by myself + an immersive sensory experience. Drinks, music and vibes available. I'm so excited for you guys to see what I've been working on. Save the date and slide thru!",
+      "id": 9,
+      "images": [
+        "https://imgur.com/DWYjsNs.jpg",
+        "https://imgur.com/MsmxofK.jpg"
+      ],
+      "location": {
+        "city": "Brooklyn",
+        "neighborhood": "Red Hook",
+        "state": "New York",
+        "street": "95 Verona Street",
+        "street 2": "",
+        "zip": 11231
+      },
+      "price": "Free",
+      "share": "share-link.com",
+      "subcategory": "Gallery",
+      "tags": [
+        "photography",
+        "black & white",
+        "mixed media",
+        "gallery"
+      ],
+      "thumbnail": "https://imgur.com/SXXLy1A.jpg",
+      "title": "MADE WELL Gallery",
+      "user": "teesndsneaks",
+      "venue": "Mat Blak"
+    },
+    {
+      "age": "All Ages",
+      "artform": "Dancer",
+      "artist": "Zummy Mohammed",
+      "calendar": {
+        "date": "04/27/2023",
+        "day": "Thursday",
+        "time": "7:00 PM EST"
+      },
+      "category": "Performing Arts",
+      "description": "Hey y'all! It's been WEEKS of working our butts off, and it's all about to pay off. I'm so excited to invite all my friends, family, and followers out to the production of Cinderella's opening weekend, which is kicking off this Thursday night. pullUP!",
+      "id": 10,
+      "images": [
+        "https://imgur.com/KdtbmDB.jpg",
+        "https://imgur.com/2MGQbfz.jpg"
+      ],
+      "location": {
+        "city": "New York City",
+        "neighborhood": "Time's Square",
+        "state": "New York",
+        "street": "214 W 42nd Street",
+        "street 2": "",
+        "zip": 110036
+      },
+      "price": "$82+",
+      "share": "share-link.com",
+      "subcategory": "Theater",
+      "tags": [
+        "musical",
+        "singing",
+        "dancing",
+        "acting",
+        "broadway"
+      ],
+      "thumbnail": "https://imgur.com/i59ejqT.jpg",
+      "tickets": "ticket-link.com",
+      "title": "Cinderella: The Musical",
+      "user": "thezummymohammed",
+      "venue": "New Amsterdam Theater"
+    }
+  ]
 }

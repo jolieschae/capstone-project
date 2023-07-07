@@ -12,8 +12,9 @@ from flask_session import Session
 
 # Local imports
 from config import app, db, api
-from models import User, Event, UserEvent
-from datetime import timedelta
+from models import User, Event, UserEvent, RSVP
+from datetime import datetime, timedelta
+import dateutil.parser as date_parser
 
 # Initialize Flask-Login
 login_manager = LoginManager(app)
@@ -182,6 +183,18 @@ class Events(Resource):
 
     def post(self):
         try:
+            required_fields = ['host_id', 'title', 'thumbnail', 'category', 'subcategory', 'description', 'city', 'state', 'zip', 'date', 'start_time', 'end_time']
+            missing_fields = [field for field in required_fields if field not in request.json]
+            if missing_fields:
+                return {'error': f'400: Missing required fields - {", ".join(missing_fields)}'}, 400
+
+            start_time_str = request.json['start_time']
+            end_time_str = request.json['end_time']
+
+            # Convert start_time and end_time to datetime objects
+            start_time = date_parser.parse(start_time_str).time()
+            end_time = date_parser.parse(end_time_str).time()
+
             new_event = Event(
                 host_id=request.json['host_id'],
                 title=request.json['title'],
@@ -193,13 +206,13 @@ class Events(Resource):
                 city=request.json['city'],
                 state=request.json['state'],
                 zip=request.json['zip'],
-                address=request.json['address'],
-                date=request.json['date'],
-                start_time=request.json['start_time'],
-                end_time=request.json['end_time'],
+                date=date_parser.parse(request.json['date']),
+                start_time=start_time,
+                end_time=end_time,
                 age_restrictions=request.json.get('age_restrictions'),
                 tickets=request.json.get('tickets'),
-                is_active=True
+                is_active=True,
+                collaborator_ids=request.json.get('collaborator_ids', [])
             )
 
             db.session.add(new_event)
@@ -207,42 +220,43 @@ class Events(Resource):
 
             new_event_dict = new_event.to_dict()
 
-            return jsonify(new_event_dict), 201
-        except:
-            return jsonify({'error': '400: Validation error'}), 400
+            return new_event_dict, 201
+        except Exception as e:
+            return {'error': '400: Validation error', 'message': str(e)}, 400
 
     def patch(self, event_id):
         event = Event.query.get(event_id)
 
         if not event:
-            return jsonify({'error': '404: Event not found'}), 404
+            return {'error': '404: Event not found'}, 404
 
         try:
             for field in request.json:
-                setattr(event, field, request.json[field])
+                if field in ['date', 'start_time', 'end_time']:
+                    setattr(event, field, date_parser.parse(request.json[field]))
+                else:
+                    setattr(event, field, request.json[field])
 
             db.session.commit()
 
             updated_event_dict = event.to_dict()
 
-            return jsonify(updated_event_dict), 200
-        except:
-            return jsonify({'error': '400: Validation error'}), 400
+            return updated_event_dict, 200
+        except Exception as e:
+            return {'error': '400: Validation error', 'message': str(e)}, 400
 
     def delete(self, event_id):
         event = Event.query.get(event_id)
 
         if not event:
-            return jsonify({'error': '404: Event not found'}), 404
+            return {'error': '404: Event not found'}, 404
 
         db.session.delete(event)
         db.session.commit()
 
         return '', 204
 
-
 api.add_resource(Events, '/events')
-
 
 class EventById(Resource):
     def get(self, id):
@@ -345,6 +359,81 @@ class UserEventByUserId(Resource):
 
 
 api.add_resource(UserEventByUserId, '/userevents/users/<int:id>')
+
+class RSVPs(Resource):
+    def post(self):
+        try:
+            new_rsvp = RSVP(
+                user_id=request.json['user_id'],
+                event_id=request.json['event_id'],
+                attended=request.json.get('attended', False)
+            )
+
+            db.session.add(new_rsvp)
+            db.session.commit()
+
+            new_rsvp_dict = new_rsvp.to_dict()
+
+            return new_rsvp_dict, 201
+        except:
+            return jsonify({'error': '400: Validation error'}), 400
+
+    def patch(self, rsvp_id):
+        rsvp = RSVP.query.get(rsvp_id)
+
+        if not rsvp:
+            return jsonify({'error': '404: RSVP not found'}), 404
+
+        try:
+            for field in request.json:
+                setattr(rsvp, field, request.json[field])
+
+            db.session.commit()
+
+            updated_rsvp_dict = rsvp.to_dict()
+
+            return updated_rsvp_dict, 200
+        except:
+            return jsonify({'error': '400: Validation error'}), 400
+
+    def get(self, rsvp_id):
+        rsvp = RSVP.query.get(rsvp_id)
+
+        if not rsvp:
+            return jsonify({'error': '404: RSVP not found'}), 404
+
+        rsvp_dict = rsvp.to_dict()
+        return rsvp_dict, 200
+
+api.add_resource(RSVPs, '/rsvps', '/rsvps/<int:rsvp_id>')
+
+class EventRSVPs(Resource):
+    def get(self, event_id):
+        event = Event.query.get(event_id)
+
+        if not event:
+            return jsonify({'error': '404: Event not found'}), 404
+
+        rsvps = event.rsvps
+        rsvp_list = [rsvp.to_dict() for rsvp in rsvps]
+
+        return rsvp_list, 200
+
+api.add_resource(EventRSVPs, '/events/<int:event_id>/rsvps')
+
+class UserRSVPs(Resource):
+    def get(self, user_id):
+        user = User.query.get(user_id)
+
+        if not user:
+            return jsonify({'error': '404: User not found'}), 404
+
+        rsvps = user.rsvps
+        rsvp_list = [rsvp.to_dict() for rsvp in rsvps]
+
+        return rsvp_list, 200
+
+api.add_resource(UserRSVPs, '/users/<int:user_id>/rsvps')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

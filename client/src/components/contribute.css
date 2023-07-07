@@ -76,6 +76,12 @@
     background-clip: border-box;
 }
 
+.chosenThumbnail {
+  width: 100px;
+  height: 100px;
+
+}
+
 .formTitle {
     color: #ffaf1b;
     font-size: 20px;
@@ -122,6 +128,11 @@
     padding: 6px;
     width: 150px;
     color: black;
+}
+
+#thumbnailInput {
+  margin-left: 95px;
+  width: 175px;
 }
 
 .rightContainer input::placeholder {

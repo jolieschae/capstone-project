@@ -6,18 +6,29 @@ export const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
   const [eventsData, setEventsData] = useState([]);
+  const [flaskEventData, setFlaskEventData] = useState([]);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchEventsData();
     checkSession();
+    fetchFlaskEventData();
   }, []);
 
   const fetchEventsData = async () => {
     try {
       const response = await axios.get('http://localhost:3000/events');
       setEventsData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchFlaskEventData = async () => {
+    try {
+      const response = await axios.get('/events');
+      setFlaskEventData(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +68,7 @@ const MyProvider = ({ children }) => {
   }
 
   return (
-    <MyContext.Provider value={{ user, eventsData, handleLogout }}>
+    <MyContext.Provider value={{ user, eventsData, flaskEventData,handleLogout }}>
       {children}
     </MyContext.Provider>
   );

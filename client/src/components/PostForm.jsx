@@ -1,13 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { MyContext } from './MyProvider';
 import "./contribute.css"
 
 function PostForm() {
 
   const [postType, setPostType] = useState('');
   const [ageRestriction, setAgeRestriction] = useState('allAges');
+
+  const [showInput, setShowInput] = useState(false);
+
+  const { user } = useContext(MyContext);
+  const [title, setTitle] = useState("");
+  const [thumbnail, setThumbnail] = useState('');
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+  const [neighborhood, setNeighborhood] = useState("");
+  const [venue, setVenue] = useState("");
+  const [date, setDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [tickets, setTickets] = useState("");
+  const [price, setPrice] = useState("");
+  const [age, setAge] = useState("");
+  const [category, setCategory] = useState("");
+  const [subcategory, setSubcategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [collaborators, setCollaborators] = useState("");
+
+
+  const handleThumbnailUpload = (event) => {
+    event.preventDefault();
+    setShowInput(true);
+  };
+
+  const handleCollaboratorChange = (index, value) => {
+    const updatedCollaborators = [...collaborators];
+    updatedCollaborators[index] = value;
+    setCollaborators(updatedCollaborators);
+  };
+
     
       const handleAgeRestrictionChange = (event) => {
         setAgeRestriction(event.target.value);
+        setAge(event.target.value);
       };
 
   const handlePostTypeChange = (e) => {
@@ -29,8 +66,58 @@ function PostForm() {
 
   const renderEventForm = () => {
 
+    function handleEventSubmit(e) {
+      e.preventDefault();
+    
+      const newEvent = {
+        host_id: user.id,
+        title: title,
+        street: street,
+        city: city,
+        state: state,
+        zip: zip,
+        neighborhood: neighborhood,
+        venue: venue,
+        date: date,
+        start_time: startTime,
+        end_time: endTime,
+        tickets: tickets,
+        price: price,
+        thumbnail: thumbnail,
+        age: age,
+        category: category,
+        subcategory: subcategory,
+        description: description,
+        collaborator_ids: collaborators,
+      };
+
+      console.log('New Event:', newEvent);
+    
+      fetch('/events', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newEvent),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response from the server
+          console.log('Event submitted:', data);
+          // Perform any necessary actions after successful submission
+          // For example, display a success message or redirect the user
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          // Handle the error if the submission fails
+        });
+    }
+  
+
     return (
-      <div className="formWrapper">
+      <form 
+      onSubmit={handleEventSubmit} 
+      className="formWrapper">
       <div className="formContainer">
       <div className="formContainersWrapper">
       <div className="leftContainer">
@@ -42,22 +129,33 @@ function PostForm() {
           <h1 className="formTitle"> give us the scoop...</h1>
           <div className="set">
             <div className="formTitleBox">
-              <label className="postFormLabel" htmlFor="pets-name">Title</label>
+              <label className="postFormLabel" htmlFor="events-name">Title</label>
               <input
               className="postFormInput"
                 type="text"
                 id="postTitle"
                 placeholder="Name your event"
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="thumbnail">
-              <button className="thumbnailUpload">
+              <button className="thumbnailUpload" onClick={handleThumbnailUpload}>
                +
               </button>
               <label 
               className="postFormLabel"
               id="thumbnailPrompt"
               > Upload a thumbnail for your event. <span className="postFormDisclaimer">Please follow community guidelines.</span></label>
+             {showInput && ( <input
+              className="postFormInput"
+              type="text"
+              id="thumbnailInput"
+              value={thumbnail}
+              onChange={(e) => setThumbnail(e.target.value)}
+            /> )}
+            </div>
+            <div className="eventThumbnailDisplay">
+            {thumbnail && <img className="chosenThumbnail" src={thumbnail} alt="Thumbnail" />}
             </div>
           </div>
           <div className="set">
@@ -65,25 +163,35 @@ function PostForm() {
               <label className="postFormLabel">Time</label>
               <input
                 className="postFormInput"
-                type="text"
+                type="time"
                 id="eventTime"
-                placeholder="Time"
+                placeholder="Start time"
+                onChange={(e) => setStartTime(e.target.value)}
+              />
+              <input
+                className="postFormInput"
+                type="time"
+                id="eventTime"
+                placeholder="End time"
+                onChange={(e) => setEndTime(e.target.value)}
               />
             </div>
             <div className="formDate">
               <label className="postFormLabel">Date</label>
               <input
                 className="postFormInput"
-                type="text"
+                type="date"
                 id="eventDate"
                 placeholder="MM/DD/YYYY"
+                onChange={(e) => setDate(e.target.value)}
               />
             </div>
             <div className="formCategoryBox">
               <label htmlFor="category">File Under:</label>
               <select className="eventFormSelectCategory" name="category"
               placeholder="Category"
-              defaultValue="">
+              defaultValue=""
+              onChange={(e) => setCategory(e.target.value)}>
               <option value="" className="categoryOption" disabled>Select a category</option>
               <option className="categoryOption" value="Music">Music</option>
               <option className="categoryOption"
@@ -104,6 +212,7 @@ function PostForm() {
                 type="text"
                 id="subcategory"
                 placeholder="Subcategories"
+                onChange={(e) => setSubcategory(e.target.value)}
               />
             </div>
           </div>
@@ -115,24 +224,28 @@ function PostForm() {
                 type="text"
                 id="state"
                 placeholder="State"
+                onChange={(e) => setState(e.target.value)}
               />
               <input
                 className="postFormInput"
                 type="text"
                 id="city"
                 placeholder="City"
+                onChange={(e) => setCity(e.target.value)}
               />
               <input
                 className="postFormInput"
                 type="text"
                 id="street"
                 placeholder="Street"
+                onChange={(e) => setStreet(e.target.value)}
               />
               <input
                 className="postFormInput"
                 type="text"
                 id="zip"
                 placeholder="ZIP"
+                onChange={(e) => setZip(e.target.value)}
               />
             </div>
             <div className="formVenue">
@@ -142,20 +255,40 @@ function PostForm() {
                 type="text"
                 id="eventVenue"
                 placeholder="Venue name"
+                onChange={(e) => setVenue(e.target.value)}
+              />
+              <input
+                className="postFormInput"
+                type="text"
+                id="eventNeighborhood"
+                placeholder="Neighborhood"
+                onChange={(e) => setNeighborhood(e.target.value)}
               />
             </div>
             <div className="formCollaborators">
             <label className="eventFormLabel"> Collaborators? Give 'em a shout
-           <input className="eventFormInput" type="text" name="collaborator1" />
-            <input className="eventFormInput" type="text" name="collaborator2" />
-           <input className="eventFormInput" type="text" name="collaborator3" />
+           <input 
+           className="eventFormInput" 
+           type="text" name="collaborator1" 
+           onChange={(e) => handleCollaboratorChange(0, e.target.value)}/>
+            <input 
+            className="eventFormInput" 
+            type="text" name="collaborator2" 
+            onChange={(e) => handleCollaboratorChange(1, e.target.value)}/>
+           <input className="eventFormInput" 
+           type="text" 
+           name="collaborator3" 
+           onChange={(e) => handleCollaboratorChange(2, e.target.value)}/>
          </label>
             </div>
           </div>
           <div className="set">
             <div className="formDescription">
               <label htmlFor="description">Description</label>
-            <textarea className="eventFormDescriptionBox" name="description"></textarea>
+            <textarea 
+            className="eventFormDescriptionBox" 
+            name="description" 
+            onChange={(e) => setDescription(e.target.value)}></textarea>
             </div>
           </div>
           <div className="set">
@@ -203,18 +336,19 @@ function PostForm() {
                 type="text"
                 id="eventTickets"
                 placeholder="Ticket Link"
+                onChange={(e) => setTickets(e.target.value)}
               />
             </div>
           </div>
         <footer>
           <div className="submit">
-            <button className="postSubmitButton">Submit</button>
+            <button type="submit" className="postSubmitButton">Submit</button>
           </div>
         </footer>
       </div>
       </div>
     </div>
-    </div>
+    </form>
     );
   };
 
