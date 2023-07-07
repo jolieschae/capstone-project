@@ -24,8 +24,8 @@ function App() {
 
   return (
     <div>
-      {(isHomePage || isLoginPage || isRegisterPage) ? null : <Nav />}
       <MyProvider>
+        {(isHomePage || isLoginPage || isRegisterPage) ? null : <Nav />}
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />

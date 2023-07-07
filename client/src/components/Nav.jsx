@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MyContext } from "./MyProvider";
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './nav.css'
 
 function Nav() {
+  const { handleLogout } = useContext(MyContext);
+  const navigate = useNavigate();
+
+  const handleLogoutClick = async () => {
+    await handleLogout();
+    navigate('/login');
+  };
+
   return (
     <div className='navBar'>
       <div className="navContent">
@@ -15,7 +25,7 @@ function Nav() {
           <Link to="/collab" className="link">collab</Link> 
           <Link to="/community" className="link">community</Link> 
           <Link to="/profile" className="link">profile</Link>
-          <Link to="/logout" className="link">logout</Link>
+          <Link onClick={handleLogoutClick} to="/login" className="link">logout</Link>
         </div>
       </div>
     </div>
@@ -23,6 +33,3 @@ function Nav() {
 }
 
 export default Nav;
-
-// conditional, if user is not logged in, display only login or sign up icon
-// if user is logged in, display feed, explore events, collaborate, community, profile, logout

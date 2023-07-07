@@ -25,7 +25,7 @@ function LoginForm({ onLogin }) {
         if (response.ok) {
           response.json().then((user) => {
             onLogin(user);
-            navigate('/events');
+            navigate('/', { replace: true });
           });
         } else {
           response.json().then((err) => setErrors(err.errors));

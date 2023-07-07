@@ -38,6 +38,16 @@ const MyProvider = ({ children }) => {
     setUser(user);
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.delete('/logout');
+      setUser(null);
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -47,7 +57,7 @@ const MyProvider = ({ children }) => {
   }
 
   return (
-    <MyContext.Provider value={{ user, eventsData }}>
+    <MyContext.Provider value={{ user, eventsData, handleLogout }}>
       {children}
     </MyContext.Provider>
   );

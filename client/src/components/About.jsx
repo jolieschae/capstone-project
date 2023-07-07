@@ -7,7 +7,7 @@ function About() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/login');
+    navigate('/events');
   };
 
   return (
