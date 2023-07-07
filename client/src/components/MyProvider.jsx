@@ -1,45 +1,18 @@
 import React, { createContext, useEffect, useState } from 'react';
+import Login from "./Login";
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 
 export const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
-  const [sessionId, setSessionId] = useState(localStorage.getItem('sessionId') || '');
   const [eventsData, setEventsData] = useState([]);
-  const [usersData, setUsersData] = useState([]);
-  // if sessionID is not null:
-  //   do the useState stuff for preexisting sessionID
-  // else:
-  //   do this stuff:
-    const [currentUser, setCurrentUser] = useState();
-    // const [currentUser, setCurrentUser] = useState({"first_name": "kash"});
-    // TODO:  Line 15 should be the logic we need to fix: on a hard-refresh, the
-    //        session ID is being persevered, but the app's ability to tether the 
-    //        session ID to the appropriate user info (`currentUser`) is being 
-    //        broken... likely because the `useState()` is taking precedence and 
-    //        `currentUser` is being set to `undefined/null`. There may be a way to 
-    //        cleverly use `handleLogin()` to leverage the execution of
-    //        `setCurrentUser()`, or you may be able to hijack that logic directly 
-    //        within the scope of this `MyProvider()` variable with some conditional
-    //        logic. 
-
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchEventsData();
-    fetchUsersData();
+    checkSession();
   }, []);
-
-  useEffect(() => {
-    console.log("ID please: ", sessionId)
-    if (sessionId) {
-      console.log("setting ID!")
-      localStorage.setItem('sessionId', sessionId);
-    } else {
-      console.log("removing ID")
-      localStorage.removeItem('sessionId');
-    }
-  }, [sessionId]);
 
   const fetchEventsData = async () => {
     try {
@@ -50,38 +23,31 @@ const MyProvider = ({ children }) => {
     }
   };
 
-  const fetchUsersData = async () => {
+  const checkSession = async () => {
     try {
-      const response = await axios.get(`/users`);
-      console.log("JFJFJFJFJJFJF", response.data)
-      console.log("who am i ", usersData)
-      setUsersData(response.data);
+      const response = await axios.get('/check_session');
+      setUser(response.data);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
 
-  const handleLogin = (userData) => {
-    const sessionId = uuidv4();
-    setCurrentUser(userData);
-    setSessionId(sessionId);
+  const handleLogin = (user) => {
+    setUser(user);
   };
 
-  const handleLogout = () => {
-    setCurrentUser(null);
-    setSessionId('');
-  };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   return (
-    <MyContext.Provider
-      value={{
-        eventsData,
-        usersData,
-        currentUser,
-        handleLogin,
-        handleLogout,
-      }}
-    >
+    <MyContext.Provider value={{ user, eventsData }}>
       {children}
     </MyContext.Provider>
   );

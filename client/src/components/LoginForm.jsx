@@ -1,54 +1,42 @@
-import React, { useContext, useState } from 'react';
-import { MyContext } from './MyProvider';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './authorization.css';
 
-function LoginForm() {
-
+function LoginForm({ onLogin }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { handleLogin, setUsername: setGlobalUsername } = useContext(MyContext);
 
-  // console.log(setGlobalUsername)
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    fetch(`http://127.0.0.1:5555/users/${username}`)
-      .then((res) => res.json())
-      .then((user) => {
-        console.log(user)
-        handleLogin(user);
-        navigate('/events');
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    })
+      .then((response) => {
+        setIsLoading(false);
+        if (response.ok) {
+          response.json().then((user) => {
+            onLogin(user);
+            navigate('/events');
+          });
+        } else {
+          response.json().then((err) => setErrors(err.errors));
+        }
       })
       .catch((error) => {
-        setErrors([error.message]);
         setIsLoading(false);
+        setErrors(['An error occurred. Please try again.']);
+        console.log(error);
       });
-  }
-
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     setIsLoading(true);
-//     fetch("/login", {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ username, password }),
-//     }).then((r) => {
-//     setIsLoading(false);
-//     if (r.ok) {
-//         r.json().then((user) => onLogin(user));
-//     } else {
-//         r.json().then((err) => setErrors(err.errors));
-//     }
-//     });
-// }
+  };
 
   return (
     <form className="authForm" onSubmit={handleSubmit}>
@@ -86,7 +74,9 @@ function LoginForm() {
           {isLoading ? 'Loading...' : 'Login'}
         </button>
         {errors.map((err, index) => (
-          <p key={index}>{err}</p>
+          <p className="errorMessage" key={index}>
+            {err}
+          </p>
         ))}
       </div>
     </form>

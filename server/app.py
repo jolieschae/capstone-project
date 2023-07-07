@@ -1,30 +1,48 @@
-#!/usr/bin/env python3
-
 # Standard library imports
 import json
-import ipdb
+import secrets
 
 # Remote library imports
 from flask_restful import Resource
-from flask import request, session, make_response, jsonify
-from sqlalchemy.exc import IntegrityError
+from flask import Flask, request, session, make_response, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, login_user, current_user, logout_user, login_required
+from flask_cors import CORS
+from flask_session import Session
 
 # Local imports
 from config import app, db, api
 from models import User, Event, UserEvent
+from datetime import timedelta
+
+# Initialize Flask-Login
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+
+app.secret_key = secrets.token_hex(16)
+app.permanent_session_lifetime = timedelta(days=7)
+
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
+CORS(app)
 
 @app.route('/')
 def home():
     return 'pullup!'
+
 
 class Users(Resource):
     def get(self):
         users = User.query.all()
         user_list = [user.to_dict() for user in users]
         return user_list, 200
-    
+
     def post(self):
         try:
             new_user = User(
@@ -35,7 +53,7 @@ class Users(Resource):
                 birthday=request.json['birthday'],
                 gender=request.json['gender'],
             )
-        
+
             db.session.add(new_user)
             db.session.commit()
 
@@ -46,18 +64,20 @@ class Users(Resource):
             return new_user_dict, 201
         except:
             return jsonify({'error': '400: Validation error'}), 400
-    
+
+
 api.add_resource(Users, '/users')
 
+
 class UserByUsername(Resource):
-    def get(self,username):
+    def get(self, username):
         user = User.query.filter_by(username=username).first()
 
         if user:
             return user.to_dict(), 200
         else:
             return {'error': '404: User not found'}, 404
-        
+
     def patch(self, username):
         user = User.query.filter_by(username=username).first()
         for attr in request.json():
@@ -71,7 +91,7 @@ class UserByUsername(Resource):
         )
 
         return response
-        
+
     def delete(self, username):
         user = User.query.filter_by(username=username).first()
         if user:
@@ -83,8 +103,10 @@ class UserByUsername(Resource):
             return response
 
         return {'error': "User not found"}, 404
-        
+
+
 api.add_resource(UserByUsername, '/users/<string:username>')
+
 
 class Signup(Resource):
     def post(self):
@@ -93,7 +115,7 @@ class Signup(Resource):
 
         if password != password_confirmation:
             return jsonify({'error': '422 Unprocessable Entity: Passwords do not match'}), 422
-        
+
         user = User(
             username=request.json['username'],
             first_name=request.json['first_name'],
@@ -102,7 +124,7 @@ class Signup(Resource):
             birthday=request.json['birthday'],
             gender=request.json['gender'],
         )
-        
+
         user.password_hash = password
 
         try:
@@ -116,7 +138,42 @@ class Signup(Resource):
             return user.to_dict(), 201
         except IntegrityError:
             return jsonify({'error': '422 Unprocessable Entity'}), 422
-        
+
+
+api.add_resource(Signup, '/signup')
+
+class CheckSession(Resource):
+    @login_required
+    def get(self):
+        return current_user.to_dict(), 200
+
+
+class Login(Resource):
+    def post(self):
+        username = request.json['username']
+        password = request.json['password']
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and user.authenticate(password):
+            login_user(user)
+            return user.to_dict(), 200
+
+        return {'error': '401 Unauthorized'}, 401
+
+
+class Logout(Resource):
+    @login_required
+    def delete(self):
+        logout_user()
+        return {}, 204
+
+
+api.add_resource(CheckSession, '/check_session')
+api.add_resource(Login, '/login')
+api.add_resource(Logout, '/logout')
+
+
 class Events(Resource):
     def get(self):
         events = Event.query.all()
@@ -182,8 +239,10 @@ class Events(Resource):
         db.session.commit()
 
         return '', 204
-    
+
+
 api.add_resource(Events, '/events')
+
 
 class EventById(Resource):
     def get(self, id):
@@ -191,7 +250,7 @@ class EventById(Resource):
 
         if event:
             event_dict = event.to_dict()
-            event_dict['description'] = json.loads(event_dict['description']) 
+            event_dict['description'] = json.loads(event_dict['description'])
             return event_dict, 200
         else:
             return {'error': '404: Event not found'}, 404
@@ -210,7 +269,9 @@ class EventById(Resource):
 
         return response
 
+
 api.add_resource(EventById, '/events/<int:id>')
+
 
 class UserEvents(Resource):
     def get(self):
@@ -236,6 +297,7 @@ class UserEvents(Resource):
 
 
 api.add_resource(UserEvents, '/userevents/')
+
 
 class UserEventById(Resource):
     def get(self, id):
@@ -275,6 +337,7 @@ class UserEventById(Resource):
 
 api.add_resource(UserEventById, '/userevents/<int:id>')
 
+
 class UserEventByUserId(Resource):
     def get(self, id):
         user_events = UserEvent.query.filter(UserEvent.user_id == id).all()
@@ -282,57 +345,6 @@ class UserEventByUserId(Resource):
 
 
 api.add_resource(UserEventByUserId, '/userevents/users/<int:id>')
-
-        
-class CheckSession(Resource):
-
-    def get(self):
-
-        if session.get('user_id'):
-
-            user = User.query.filter(User.id == session['user_id']).first()
-
-            return user.to_dict(), 200
-        
-        return {'error': '401 Unauthorized'}, 401
-    
-class Login(Resource):
-
-    def post(self):
-
-        # print("ASDFASDFASDF", request)
-
-        username = request.json['username']
-        password = request.json['password']
-
-        user = User.query.filter(User.username == username).first()
-
-        if user:
-            if user.authenticate(password):
-
-                session['user_id'] = user.id
-                return user.to_dict(), 200
-            # else:
-            #     print("help")
-            
-        return {'error': '401 Unauthorized'}, 401
-    
-class Logout(Resource):
-
-    def delete(self):
-
-        if session.get('user_id'):
-
-            session['user_id'] = None
-
-            return {}, 204
-        
-        return {'error': '401 Unauthorized'}, 401
-    
-api.add_resource(Signup, '/signup')
-api.add_resource(CheckSession, '/check_session')
-api.add_resource(Login, '/login')
-api.add_resource(Logout, '/logout')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

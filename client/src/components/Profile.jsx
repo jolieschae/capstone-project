@@ -7,9 +7,9 @@ import StatusCard from './StatusCard';
 import GigHistoryCard from './GigHistoryCard';
 
 function Profile() {
-  const { currentUser } = useContext(MyContext);
+  const { user } = useContext(MyContext);
   // const { usersData } = useContext(MyContext);
-  console.log(currentUser);
+  console.log(user);
   // const [currentStatusPage, setCurrentStatusPage] = useState(1);
   // const [currentGigPage, setCurrentGigPage] = useState(1);
 //  const user = usersData.find((user));
@@ -61,8 +61,8 @@ function Profile() {
                     </div>
                   </div>
                   <div className="profileDetails">
-                    <p className="profileFullname">{currentUser.first_name}</p>
-                    <p className="profileUsername">@{currentUser.username}</p>
+                    <p className="profileFullname">{user.first_name}</p>
+                    <p className="profileUsername">@{user.username}</p>
                     <p className="profileArtform">Visual Artist</p>
                     <p className="profileLocation">⟟ New York</p>
                   </div>
